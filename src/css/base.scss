@@ -1,6 +1,19 @@
 /* This is an example of how to import a partial scss file*/
-@import '_variables';
+@import 'variables';
+@import 'mixins';
+@import 'reset';
 
 body {
   background: $primary-background;
+  background-image: $background-image;
+  background-size: cover;
+  @include size(100%, 100%);
+}
+
+.welcome {
+  font-size: 24px;
+}
+
+.overlook-title{
+  font-size: 50px;
 }
