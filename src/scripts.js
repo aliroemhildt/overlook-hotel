@@ -47,8 +47,14 @@ const postData = () => {
   date: '2022/11/20',
   roomNumber: 15,
   })
-    // .then(data => console.log(data))
-    .then(showLengthBookingsAPI())
+    .then(data => {
+      console.log('post: ', data)
+      fetchBookings()
+        .then(data => {
+          console.log(data.bookings);
+          lengthCustomers.innerText = `Number of bookings: ${data.bookings.length}`;
+        })
+    })
 }
 
 postButton.addEventListener('click', postData);
