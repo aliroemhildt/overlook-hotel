@@ -54,7 +54,7 @@ describe('Hotel', () => {
     const rooms2 = [...allRooms];
     rooms2.splice(2, 2);
 
-    expect(availableRooms1).to.deep.equal(rooms1);    
+    expect(availableRooms1).to.deep.equal(rooms1);
     expect(availableRooms2).to.deep.equal(rooms2);
   })
 
@@ -63,7 +63,13 @@ describe('Hotel', () => {
   })
 
   it('should calculate the percentage of rooms occupied for todays date', () => {
+    const revenue1 = hotel.calculateTotalRevenue("2022/11/20");
+    const revenue2 = hotel.calculateTotalRevenue("2022/02/16");
+    const revenue3 = hotel.calculateTotalRevenue("2022/02/05");
 
+    expect(revenue1).to.equal(0);
+    expect(revenue2).to.equal(231.46);
+    expect(revenue3).to.equal(629.97);
   })
 
   it('should filter all rooms by type', () => {

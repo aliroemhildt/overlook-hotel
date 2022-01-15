@@ -18,6 +18,18 @@ class Hotel {
       return !bookedRooms.includes(room.number);
     });
   }
+
+  calculateTotalRevenue(date) {
+    return this.rooms.reduce((acc, room) => {
+      const roomBooking = this.bookings.find(booking => {
+        return ((booking.roomNumber === room.number) && (booking.date === date));
+      })
+      if (roomBooking) {
+        acc += room.costPerNight;
+      }
+      return acc;
+    }, 0);
+  }
 }
 
 export default Hotel;
