@@ -1,10 +1,11 @@
-import Customer from '../test/customer-test.js';
-import sampleCustomers '../src/data/customers-data';
-import sampleBookings '../src/data/bookings-data';
+import { expect } from 'chai';
+import Customer from '../src/classes/Customer.js';
+import sampleCustomers from '../src/data/customers-data';
+import sampleBookings from '../src/data/bookings-data';
+import sampleRooms from '../src/data/rooms-data';
 
 describe('Customer', () => {
-    const customer = sampleCustomers[0];
-    const bookings = sampleBookings;
+    const customer = new Customer(sampleCustomers[0])
     const booking1 = sampleBookings[4];
     const booking2 = sampleBookings[7];
     const myBookings = [sampleBookings[4], sampleBookings[7]];
@@ -18,21 +19,21 @@ describe('Customer', () => {
   });
 
   it('should have an id', () => {
-    expect(customer.id).to.equal(sampleCustomer[0].id)
+    expect(customer.id).to.equal(sampleCustomers[0].id)
   })
 
   it('should have a name', () => {
-    expect(customer.name).to.equal(sampleCustomer[0].name)
+    expect(customer.name).to.equal(sampleCustomers[0].name)
   })
 
-  it('should return all bookings for that customer, given a list of bookings', () => {
-    customer.getAllBookings()
-    expect(customer.allBookings).to.deep.equal(myBookings);
+  it('should store all bookings for that customer', () => {
+    customer.getAllBookings(sampleBookings)
+    expect(customer.bookings).to.deep.equal(myBookings);
   });
 
   it('should calculate the total amount that customer has spent on all bookings', () => {
-    const total = customer.calculateTotalSpent();
-    expect(total).to.equal();
+    const total = customer.calculateTotalSpent(sampleRooms);
+    expect(total).to.equal(601.41);
   });
 
 })
