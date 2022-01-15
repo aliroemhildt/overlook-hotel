@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Customer from '../src/classes/Customer.js';
+import Customer from '../src/classes/Customer';
 import sampleCustomers from '../src/data/customers-data';
 import sampleBookings from '../src/data/bookings-data';
 import sampleRooms from '../src/data/rooms-data';
