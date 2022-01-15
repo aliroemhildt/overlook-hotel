@@ -39,40 +39,70 @@ describe('Hotel', () => {
     expect(hotel.bookings).to.be.an('array');
     expect(hotel.bookings.length).to.be.greaterThan(0);
     expect(hotel.bookings).to.deep.equal(allBookings);
-  })
+  });
 
   it('should store all bookings as instances of Booking', () => {
     expect(hotel.bookings[0]).to.be.an.instanceof(Booking);
-  })
+  });
 
   it('should show all rooms available for a given date', () => {
-    const availableRooms1 = hotel.getAvailableRooms("2022/02/16");
+    const availableRooms1 = hotel.getAvailableRooms('2022/02/16');
     const rooms1 = [...allRooms];
     rooms1.shift();
 
-    const availableRooms2 = hotel.getAvailableRooms("2022/02/05");
+    const availableRooms2 = hotel.getAvailableRooms('2022/02/05');
     const rooms2 = [...allRooms];
     rooms2.splice(2, 2);
 
     expect(availableRooms1).to.deep.equal(rooms1);
     expect(availableRooms2).to.deep.equal(rooms2);
-  })
+  });
 
   it('should calculate the total revenue for todays date', () => {
-
-  })
-
-  it('should calculate the percentage of rooms occupied for todays date', () => {
-    const revenue1 = hotel.calculateTotalRevenue("2022/11/20");
-    const revenue2 = hotel.calculateTotalRevenue("2022/02/16");
-    const revenue3 = hotel.calculateTotalRevenue("2022/02/05");
+    const revenue1 = hotel.calculateTotalRevenue('2022/11/20');
+    const revenue2 = hotel.calculateTotalRevenue('2022/02/16');
+    const revenue3 = hotel.calculateTotalRevenue('2022/02/05');
 
     expect(revenue1).to.equal(0);
     expect(revenue2).to.equal(231.46);
     expect(revenue3).to.equal(629.97);
-  })
+  });
 
   it('should filter all rooms by type', () => {
+    const filter1 = hotel.filterRooms([
+      'single room'
+    ]);
 
+    const rooms1 = [
+      sampleRooms[0],
+      sampleRooms[1],
+      sampleRooms[2],
+      sampleRooms[5]
+    ];
+
+    const filter2 = hotel.filterRooms([
+      'residential suite',
+      'suite'
+    ]);
+
+    const rooms2 = [
+      sampleRooms[3],
+      sampleRooms[4],
+      sampleRooms[6]
+    ];
+
+    expect(filter1).to.deep.equal(rooms1);
+    expect(filter2).to.deep.equal(rooms2);
   })
+
+  it('should calculate the percentage of rooms occupied for todays date', () => {
+    const percentOccupied1 = hotel.calculatePercentOccupied('2022/11/20');
+    const percentOccupied2 = hotel.calculatePercentOccupied('2022/02/16');
+    const percentOccupied3 = hotel.calculatePercentOccupied('2022/02/05');
+
+    expect(percentOccupied1).to.equal(0);
+    expect(percentOccupied2).to.equal(14);
+    expect(percentOccupied3).to.equal(29);
+  });
+
 })

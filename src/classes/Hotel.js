@@ -30,6 +30,28 @@ class Hotel {
       return acc;
     }, 0);
   }
+
+  filterRooms(types) {
+    return this.rooms.reduce((acc, room) => {
+      types.forEach(type => {
+        if (room.roomType === type) {
+          acc.push(room);
+        }
+      });
+      return acc;
+    }, []);
+  }
+
+  calculatePercentOccupied(date) {
+    const occupied = this.bookings.filter(booking => {
+      return booking.date === date;
+    });
+    if (occupied.length > 0) {
+      return Math.round((occupied.length / this.rooms.length) * 100);
+    } else {
+      return 0;
+    }
+  };
 }
 
 export default Hotel;
