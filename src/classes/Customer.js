@@ -21,6 +21,17 @@ class Customer {
       return total;
     }, 0);
   }
+
+  createNewBooking(date, room) {
+    const booking = {
+      userID: this.id,
+      date: date.replaceAll('-', '/'),
+      roomNumber: room.number
+    }
+    postBooking(booking)
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
+  }
 }
 
 export default Customer;

@@ -20,6 +20,8 @@ const p1 = document.querySelector('.p-1-js');
 const p2 = document.querySelector('.p-2-js');
 const postButton = document.querySelector('.post-js');
 const lengthCustomers = document.querySelector('.length-js');
+const dateInput = document.querySelector('.date');
+const dateButton = document.querySelector('.date-button');
 
 fetchCustomers()
   .then(data => {
@@ -50,8 +52,13 @@ const postData = () => {
     .then(data => showLengthBookingsAPI())
   }
 
+const showDate = () => {
+  console.log(dateInput.value);
+}
+
 
 postButton.addEventListener('click', postData);
+dateButton.addEventListener('click', showDate);
 
 // to delete:
 // fetch('http://localhost:3001/api/v1/bookings/<id>', {method: "DELETE"})
