@@ -1,6 +1,8 @@
 const fetchCustomers = () => {
   return fetch('http://localhost:3001/api/v1/customers')
-    .then(response => response.json())
+    .then(response => {
+      return response.json()
+    })
 }
 
 const fetchRooms = () => {

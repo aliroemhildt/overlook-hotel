@@ -52,7 +52,7 @@ const sampleBookings = [
     "id": "5fwrgu4i7k55hl6tq",
     "userID": 1,
     "date": "2022/03/05",
-    "roomNumber": 45,
+    "roomNumber": 21,
     "roomServiceCharges": []
   },
 ];
