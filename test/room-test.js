@@ -41,4 +41,10 @@ describe('Room', () => {
     expect(room.numBeds).to.be.greaterThan(0);
     expect(room.numBeds).to.equal(2);
   });
+
+  it('should have a cost per night', () => {
+    expect(room.costPerNight).to.be.a('number');
+    expect(room.costPerNight).to.be.greaterThan(0);
+    expect(room.costPerNight).to.equal(231.46);
+  })
 })
