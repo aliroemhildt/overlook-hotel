@@ -14,22 +14,31 @@ describe('Room', () => {
   });
 
   it('should have a number', () => {
+    expect(room.number).to.be.a('number');
+    expect(room.number).to.be.greaterThan(0);
     expect(room.number).to.equal(15);
   });
 
   it('should have a roomType', () => {
+    expect(room.roomType).to.be.a('string');
+    expect(room.roomType.length).to.be.greaterThan(0);
     expect(room.roomType).to.equal('residential suite');
   });
 
   it('should show if a bidet is present', () => {
+    expect(room.bidet).to.be.a('boolean');
     expect(room.bidet).to.equal(false);
   });
 
   it('should have a bed size', () => {
+    expect(room.bedSize).to.be.a('string');
+    expect(room.bedSize.length).to.be.greaterThan(0);
     expect(room.bedSize).to.equal('full');
   });
 
   it('should show the number of beds', () => {
+    expect(room.numBeds).to.be.a('number');
+    expect(room.numBeds).to.be.greaterThan(0);
     expect(room.numBeds).to.equal(1);
-  })
+  });
 })

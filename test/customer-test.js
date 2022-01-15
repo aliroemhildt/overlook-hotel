@@ -27,7 +27,7 @@ describe('Customer', () => {
   })
 
   it('should store all bookings for that customer', () => {
-    customer.getAllBookings(sampleBookings)
+    customer.getAllBookings(sampleBookings);
     expect(customer.bookings).to.deep.equal(myBookings);
   });
 

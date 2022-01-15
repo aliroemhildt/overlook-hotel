@@ -15,6 +15,7 @@ describe('Booking', () => {
 
   it('should have an id', () => {
     expect(booking.id).to.be.a('string');
+    expect(booking.id.length).to.be.greaterThan(0);
     expect(booking.id).to.equal("5fwrgu4i7k55hl6sz");
   });
 
