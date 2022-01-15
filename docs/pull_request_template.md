@@ -1,14 +1,10 @@
-#What does this PR do?
+# What does this PR do?
 
 
-#Is this a bug fix or a feature?
+# Is this a feature / refactor / bug fix?
 
 
-#How has it been tested?
+# How has this been tested?
 
 
-#Any background context you want to provide?
-
-
-#Where should the reviewer start?
-
+# Next steps:
