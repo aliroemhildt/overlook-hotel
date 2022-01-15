@@ -1,3 +1,5 @@
+import postBooking from '../apiCalls';
+
 class Customer {
   constructor(customer) {
     this.id = customer.id;
@@ -20,6 +22,17 @@ class Customer {
       });
       return total;
     }, 0);
+  }
+
+  createNewBooking(date, room) {
+    const booking = {
+      userID: this.id,
+      date: date.replaceAll('-', '/'),
+      roomNumber: room.number
+    }
+    postBooking(booking)
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
   }
 }
 
