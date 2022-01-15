@@ -1,3 +1,5 @@
+import postBooking from '../apiCalls';
+
 class Customer {
   constructor(customer) {
     this.id = customer.id;
