@@ -47,7 +47,10 @@ const postData = () => {
   date: '2022/11/20',
   roomNumber: 15,
   })
-    .then(data => showLengthBookingsAPI())
+    .then(data => {
+      console.log(data.newBooking)
+      showLengthBookingsAPI()
+    })
   }
 
 
