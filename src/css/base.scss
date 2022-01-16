@@ -44,7 +44,7 @@ h3 {
 }
 
 .align-center {
-  @include flex-row(center, center);
+  @include flex-row(center, flex-start);
 }
 
 .hidden {
