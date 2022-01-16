@@ -1,10 +1,25 @@
 import Room from './Room';
 import Booking from './Booking';
+import Customer from './Customer';
 
 class Hotel {
-  constructor(rooms, bookings) {
-    this.rooms = rooms.map(room => new Room(room));
-    this.bookings = bookings.map(booking => new Booking(booking));
+  constructor( customers, rooms, bookings) {
+    this.rooms = this.setRooms(rooms);
+    this.bookings = this.setBookings(bookings);
+    this.customers = this.setCustomers(rooms);
+    this.currentCustomer = null;
+  }
+
+  setRooms(rooms) {
+    return rooms.map(room => new Room(room));
+  }
+
+  setBookings(bookings) {
+    return bookings.map(booking => new Booking(booking));
+  }
+
+  setCustomers(customers) {
+    return customers.map(customer => new Customer(customer));
   }
 
   getAvailableRooms(date) {
