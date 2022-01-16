@@ -17,13 +17,13 @@
 }
 
 @mixin box-shadow() {
-  box-shadow: 2px 4px 8px rgba(41, 100, 106, .2);
+  box-shadow: 2px 4px 4px rgba(41, 100, 106, .2);
 }
 
 @mixin section-border() {
-  border-radius: 70px;
+  border-radius: 30px;
 }
 
 @mixin sub-section-border() {
-  border-radius: 45px;
+  border-radius: 20px;
 }

@@ -1,9 +1,9 @@
 
 
 const qs = {
-  
+
 }
 
 const domUpdates = {
-
+  
 }
