@@ -12,7 +12,7 @@
 
 .dashboard-wrapper {
   @include flex-row(space-around, center);
-  @include size(100%, 100%);
+  @include size(95%, 100%);
 }
 
 .dashboard-section {
@@ -23,12 +23,12 @@
 
 .dashboard-section-left {
   @include flex-column(center, flex-start);
-  @include size(100%, 40%);
+  @include size(90%, 40%);
 }
 
 .dashboard-section-right {
   @include flex-column(center, flex-start);
-  @include size(100%, 60%);
+  @include size(90%, 60%);
 }
 
 .total-spent-wrapper {
@@ -39,4 +39,10 @@
 .booking-cards-wrapper {
   @include size(80%, 90%);
   @include flex-column(center, flex-start);
+  overflow: auto;
+}
+
+.card {
+  @include size(90%, 80px);
+  margin: 10px;
 }

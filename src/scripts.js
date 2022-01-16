@@ -14,6 +14,7 @@ import {
   fetchSingleCustomer,
   postBooking
 } from './apiCalls'
+import {domUpdates} from './domUpdates';
 
 let hotel;
 
@@ -22,7 +23,8 @@ const fetchData = () => {
   .then(data => {
     setHotel(data);
     setCurrentCustomer();
-    console.log(hotel);
+    console.log(hotel.currentCustomer.bookings);
+    domUpdates.displayBookings(hotel.currentCustomer.bookings)
   })
   .catch(error => console.log(error)) //this will need a domUpdate fn
 }
@@ -33,6 +35,7 @@ const setHotel = (data) => {
 
 const setCurrentCustomer = () => {
   hotel.currentCustomer = hotel.customers[getRandomIndex(hotel.customers)];
+  hotel.currentCustomer.getAllBookings(hotel.bookings);
 }
 
 const getRandomIndex = (array) => {
