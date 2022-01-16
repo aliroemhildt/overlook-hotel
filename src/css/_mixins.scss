@@ -2,3 +2,7 @@
   height: $x;
   width: $y;
 }
+
+@mixin flex-row() {
+  display: flex;
+}
