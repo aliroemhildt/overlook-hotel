@@ -54,7 +54,4 @@ describe('Customer', () => {
     expect(total).to.equal(601.41);
   });
 
-  // add test for customers property
-  // add test for currentCustomer property
-
 })
