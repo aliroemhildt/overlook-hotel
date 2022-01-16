@@ -14,13 +14,13 @@
     <h1 class="welcome">Welcome to the</h1>
     <h1 class="overlook-title">Overlook Hotel</h1>
   </nav>
-  <main>
+  <main class="align-center">
     <!-- api test -->
     <!-- <p class="p-1-js">Customer 1:</p>
     <p class="p-2-js">Customer 10:</p>
     <button class="post-js">post new booking</button>
     <p class="length-js"></p> -->
-    <section class="login-section">
+    <section class="login hidden">
       <h2 class="login-text">Log In</h2>
       <div class="input-wrapper">
         <p>username:</p>
@@ -30,7 +30,19 @@
       </div>
       <button class="login-button">Log In</button>
     </section>
+    <section class="customer-dashboard">
+      <h2>My Dashboard</h2>
+      <div class="dashboard-wrapper">
+        <section class="total-spent dashboard-section">
+          <h3>Total Bill</h3>
+        </section>
+        <section class="my-bookings dashboard-section">
+          <h3>My Bookings</h3>
+        </section
+      </div>
+    </section>
   </main>
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

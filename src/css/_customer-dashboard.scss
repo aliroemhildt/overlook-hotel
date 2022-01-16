@@ -1,0 +1,29 @@
+.customer-dashboard {
+  @include size(75%, 75%);
+  @include section-border();
+  @include box-shadow();
+  @include flex-column(center, flex-start);
+  background-color: $light-blue;
+}
+
+.dashboard-wrapper {
+  @include flex-row(space-around, center);
+  @include size(90%, 100%);
+}
+
+.dashboard-section {
+  @include sub-section-border();
+  @include box-shadow();
+  background-color: $white;
+  @include size(80%, 40%);
+}
+
+.total-spent {
+  @include size(85%, 30%);
+  @include flex-column(center, flex-start);
+}
+
+.my-bookings {
+  @include size(85%, 60%);
+    @include flex-column(center, flex-start);
+}
