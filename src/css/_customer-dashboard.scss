@@ -4,26 +4,31 @@
   @include box-shadow();
   @include flex-column(center, flex-start);
   background-color: $light-blue;
+
+  h2 {
+    margin-bottom: 0;
+  }
 }
 
 .dashboard-wrapper {
   @include flex-row(space-around, center);
-  @include size(90%, 100%);
+  @include size(100%, 100%);
 }
 
 .dashboard-section {
   @include sub-section-border();
   @include box-shadow();
   background-color: $white;
-  @include size(80%, 40%);
 }
 
 .total-spent {
-  @include size(85%, 30%);
+  @include size(80%, 30%);
   @include flex-column(center, flex-start);
+  margin-left: 15px;
 }
 
 .my-bookings {
-  @include size(85%, 60%);
-    @include flex-column(center, flex-start);
+  @include size(80%, 58%);
+  @include flex-column(center, flex-start);
+  margin-right: 15px;
 }
