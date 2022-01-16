@@ -16,13 +16,13 @@ describe('Room', () => {
   it('should have a number', () => {
     expect(room.number).to.be.a('number');
     expect(room.number).to.be.greaterThan(0);
-    expect(room.number).to.equal(15);
+    expect(room.number).to.equal(7);
   });
 
   it('should have a roomType', () => {
     expect(room.roomType).to.be.a('string');
     expect(room.roomType.length).to.be.greaterThan(0);
-    expect(room.roomType).to.equal('residential suite');
+    expect(room.roomType).to.equal('single room');
   });
 
   it('should show if a bidet is present', () => {
@@ -33,12 +33,18 @@ describe('Room', () => {
   it('should have a bed size', () => {
     expect(room.bedSize).to.be.a('string');
     expect(room.bedSize.length).to.be.greaterThan(0);
-    expect(room.bedSize).to.equal('full');
+    expect(room.bedSize).to.equal('queen');
   });
 
   it('should show the number of beds', () => {
     expect(room.numBeds).to.be.a('number');
     expect(room.numBeds).to.be.greaterThan(0);
-    expect(room.numBeds).to.equal(1);
+    expect(room.numBeds).to.equal(2);
   });
+
+  it('should have a cost per night', () => {
+    expect(room.costPerNight).to.be.a('number');
+    expect(room.costPerNight).to.be.greaterThan(0);
+    expect(room.costPerNight).to.equal(231.46);
+  })
 })
