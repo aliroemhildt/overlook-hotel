@@ -1,0 +1,18 @@
+nav {
+  @include size(20%, 100%);
+  border: 1px dotted green;
+}
+
+.welcome {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 40px 0 18px 40px;
+  color: $teal;
+}
+
+.overlook-title{
+  font-weight: 700;
+  font-size: 60px;
+  margin-left: 40px;
+  color: $teal;
+}

@@ -1,0 +1,7 @@
+.login-wrapper {
+  @include size(350px, 350px);
+  background-color: $light-blue;
+  margin: 40px;
+  border-radius: 25%;
+  padding: 20px;
+}
