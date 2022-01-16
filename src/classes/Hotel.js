@@ -6,7 +6,7 @@ class Hotel {
   constructor( customers, rooms, bookings) {
     this.rooms = this.setRooms(rooms);
     this.bookings = this.setBookings(bookings);
-    this.customers = this.setCustomers(rooms);
+    this.customers = this.setCustomers(customers);
     this.currentCustomer = null;
   }
 
