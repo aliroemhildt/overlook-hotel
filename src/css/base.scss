@@ -8,15 +8,19 @@
 // font-family: 'Noto Sans', sans-serif;
 // 400
 // 700
-html,
+html {
+  @include size(100%, 100%);
+}
+
 body {
-  background: $primary-background;
   background-image: $background-image;
   background-size: cover;
+  background-repeat: no-repeat;
   @include size(100%, 100%);
   font-family: 'Noto Sans', sans-serif;
 }
 
 main {
-  @include size(80%, 100%);
+  @include size(75%, 100%);
+  @include flex-row(flex-start, center);
 }
