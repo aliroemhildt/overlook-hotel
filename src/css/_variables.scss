@@ -1,8 +1,12 @@
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+// $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+// ;
 
 $background-image: url('../images/hotel-close-up.png');
 
-$light-blue: #C6E0E1;
+$light-blue: rgba(198, 224, 225, 1);
 
-$teal: #29646A;
+$white: rgba(255, 255, 255, 1);
+
+$teal: rgba(41, 100, 106, 1);
+
+$teal-hover: rgba(35, 94, 100, 1);

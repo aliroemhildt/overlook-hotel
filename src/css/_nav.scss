@@ -1,0 +1,18 @@
+nav {
+@include size(25%, 100%);
+@include flex-column(flex-start, center);
+}
+
+.welcome {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0 0 18px 60px;
+  color: $teal;
+}
+
+.overlook-title{
+  font-weight: 700;
+  font-size: 60px;
+  margin-left: 60px;
+  color: $teal;
+}

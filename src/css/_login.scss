@@ -1,0 +1,42 @@
+.login-section {
+  @include size(350px, 350px);
+  @include flex-column(center, center);
+  @include box-shadow();
+  @include section-border();
+  background-color: $light-blue;
+  margin-left: 60px;
+
+  input {
+    margin: 12px 0 12px 0;
+    font-size: 18px;
+  }
+}
+
+.input-wrapper {
+  @include flex-column(flex-start, center);
+
+  p {
+    color: $teal;
+    font-size: 18px;
+  }
+}
+
+.login-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: $teal;
+  margin: 40px;
+}
+
+.login-button {
+  @include size(30px, 80px);
+  border-radius: 15px;
+  border: none;
+  margin: 40px;
+  background-color: $teal;
+  color: $white;
+}
+
+.login-button:hover {
+  background-color: $teal-hover;
+}

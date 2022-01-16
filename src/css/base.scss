@@ -2,18 +2,25 @@
 @import 'variables';
 @import 'mixins';
 @import 'reset';
+@import 'nav';
+@import 'login';
 
-body {
-  background: $primary-background;
-  background-image: $background-image;
-  background-size: cover;
+// font-family: 'Noto Sans', sans-serif;
+// 400
+// 700
+html {
   @include size(100%, 100%);
 }
 
-.welcome {
-  font-size: 24px;
+body {
+  background-image: $background-image;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include size(100%, 100%);
+  font-family: 'Noto Sans', sans-serif;
 }
 
-.overlook-title{
-  font-size: 50px;
+main {
+  @include size(75%, 100%);
+  @include flex-row(flex-start, center);
 }

@@ -2,3 +2,24 @@
   height: $x;
   width: $y;
 }
+
+@mixin flex-row($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin flex-column($x, $y) {
+  display: flex;
+  flex-direction: column;
+  align-items: $x;
+  justify-content: $y;
+}
+
+@mixin box-shadow() {
+  box-shadow: 2px 4px 10px rgba(198, 224, 225, 0.5);
+}
+
+@mixin section-border() {
+  border-radius: 20%;
+}
