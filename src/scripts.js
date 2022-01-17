@@ -49,7 +49,7 @@ const fetchData = (customer) => {
     // const bookings = hotel.currentCustomer.bookings;
     // const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     domUpdates.hideLoginPage();
-    domUpdates.populateBookings(hotel);
+    // domUpdates.populateBookings(hotel);
     domUpdates.populateTotalBill(hotel);
     domUpdates.displayCustomerDashboard(hotel);
   })

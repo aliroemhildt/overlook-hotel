@@ -23,7 +23,9 @@ const qs = {
 const domUpdates = {
   populateBookings(hotel) {
     cardsSection.innerHTML = '';
-    hotel.currentCustomer.bookings.forEach(booking => {
+    const myBookings = hotel.currentCustomer.bookings;
+    console.log(myBookings);
+    myBookings.forEach(booking => {
       const room = hotel.rooms.find(room => {
         return room.number === booking.roomNumber
       });
