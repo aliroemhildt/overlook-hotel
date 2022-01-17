@@ -14,6 +14,8 @@ const bookMenuButton = document.getElementById('book-menu-button');
 const dashboardMenuButton = document.getElementById('dashboard-menu-button');
 const dateInput = document.getElementById('date-input');
 const availableRoomsSection = document.getElementById('availableRooms');
+const filterButton = document.querySelector('.filter-button');
+const typeFilters = document.querySelectorAll('.checkbox-js');
 
 const qs = {
   dashboardMenuButton,
@@ -23,9 +25,7 @@ const qs = {
 const domUpdates = {
   populateBookings() {
     cardsSection.innerHTML = '';
-    const myBookings = hotel.currentCustomer.bookings;
-    console.log(myBookings);
-    myBookings.forEach(booking => {
+    hotel.currentCustomer.bookings.forEach(booking => {
       const room = hotel.rooms.find(room => {
         return room.number === booking.roomNumber
       });
@@ -42,9 +42,10 @@ const domUpdates = {
 
   populateAvailableRooms() {
     availableRoomsSection.innerHTML = '';
-    const availableRooms = hotel.getAvailableRooms(dateInput.value);
-    console.log(availableRooms);
-    availableRooms.forEach(room => {
+    hotel.getAvailableRooms(dateInput.value);
+    console.log("before filters:", hotel.availableRooms);
+    domUpdates.checkFilters();
+    hotel.availableRooms.forEach(room => {
       const bidet = room.bidet ? 'yes' : 'no';
       availableRoomsSection.innerHTML += `
         <div class="card">
@@ -91,8 +92,17 @@ const domUpdates = {
     domUpdates.populateAvailableRooms();
   },
 
-  filterRooms() {
-    const rooms =
+  checkFilters() {
+    const types = [];
+    typeFilters.forEach(checkbox => {
+      if (checkbox.checked) {
+        types.push(checkbox.value.replace('-', ' '));
+       }
+    });
+    if (types.length > 0) {
+      hotel.filterRooms(types);
+    }
+    console.log("check filters: ", hotel.availableRooms);
   },
 
   getTodaysDate() {
@@ -106,7 +116,7 @@ const domUpdates = {
   setMinDate() {
     const today = domUpdates.getTodaysDate().replaceAll('/', '-');
     dateInput.min = today;
-    dateInput.defaultValue = today;
+    dateInput.value = today;
   },
 
   show(elements) {
@@ -133,6 +143,8 @@ bookMenuButton.addEventListener('click', () => {
 dashboardMenuButton.addEventListener('click', () => {
   domUpdates.displayCustomerDashboard(hotel);
 });
+
+filterButton.addEventListener('click', domUpdates.populateAvailableRooms);
 
 
 
