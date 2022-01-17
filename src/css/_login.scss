@@ -1,4 +1,4 @@
-.login-section {
+.login {
   @include size(350px, 350px);
   @include flex-column(center, center);
   @include box-shadow();
@@ -19,13 +19,6 @@
     color: $teal;
     font-size: 18px;
   }
-}
-
-.login-text {
-  font-size: 24px;
-  font-weight: 700;
-  color: $teal;
-  margin: 40px;
 }
 
 .login-button {

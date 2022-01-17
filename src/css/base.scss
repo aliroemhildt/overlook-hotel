@@ -4,6 +4,7 @@
 @import 'reset';
 @import 'nav';
 @import 'login';
+@import 'customer-dashboard';
 
 // font-family: 'Noto Sans', sans-serif;
 // 400
@@ -22,5 +23,30 @@ body {
 
 main {
   @include size(75%, 100%);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: $teal;
+  margin: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: $teal;
+  margin: 20px;
+}
+
+.align-left {
   @include flex-row(flex-start, center);
+}
+
+.align-center {
+  @include flex-row(center, flex-start);
+}
+
+.hidden {
+  display: none;
 }

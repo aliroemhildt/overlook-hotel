@@ -1,4 +1,4 @@
-import postBooking from '../apiCalls';
+import {postBooking} from '../apiCalls';
 
 class Customer {
   constructor(customer) {
@@ -14,7 +14,7 @@ class Customer {
   }
 
   calculateTotalSpent(rooms) {
-    return this.bookings.reduce((total, booking) => {
+    const totalSpent = this.bookings.reduce((total, booking) => {
       rooms.forEach(room => {
         if (room.number === booking.roomNumber) {
           total += room.costPerNight;
@@ -22,6 +22,7 @@ class Customer {
       });
       return total;
     }, 0);
+    return totalSpent.toFixed(2);
   }
 
   createNewBooking(date, room) {

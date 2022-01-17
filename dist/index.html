@@ -14,25 +14,35 @@
     <h1 class="welcome">Welcome to the</h1>
     <h1 class="overlook-title">Overlook Hotel</h1>
   </nav>
-  <main>
-    <!-- api test -->
-    <!-- <p class="p-1-js">Customer 1:</p>
-    <p class="p-2-js">Customer 10:</p>
-    <button class="post-js">post new booking</button>
-    <p class="length-js"></p> -->
-    <section class="login-section">
+  <main class="align-left">
+    <section class="login">
       <h2 class="login-text">Log In</h2>
       <div class="input-wrapper">
         <p>username:</p>
-        <input type="text" placeholder="customerid">
+        <input type="text" placeholder="customerid" id="username">
         <p>password:</p>
-        <input type="text" placeholder="overlook2021">
+        <input type="text" placeholder="overlook2021" id="password">
       </div>
       <button class="login-button">Log In</button>
     </section>
+    <section class="customer-dashboard hidden">
+      <h2>My Dashboard</h2>
+      <div class="dashboard-wrapper">
+        <div class="dashboard-section-left">
+          <h3>Total Bill</h3>
+          <section class="total-spent-wrapper dashboard-section">
+          </section>
+        </div>
+        <div class="dashboard-section-right">
+          <h3>My Bookings</h3>
+          <section class="booking-cards-wrapper dashboard-section">
+          </section>
+        </div>
+    </div>
+    </section>
   </main>
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>

@@ -1,0 +1,64 @@
+.customer-dashboard {
+  @include size(90%, 90%);
+  @include section-border();
+  @include box-shadow();
+  @include flex-column(center, flex-start);
+  background-color: $light-blue;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.dashboard-wrapper {
+  @include flex-row(space-around, center);
+  @include size(95%, 100%);
+}
+
+.dashboard-section {
+  @include sub-section-border();
+  @include box-shadow();
+  background-color: $white;
+}
+
+.dashboard-section-left {
+  @include flex-column(center, flex-start);
+  @include size(90%, 40%);
+}
+
+.dashboard-section-right {
+  @include flex-column(center, flex-start);
+  @include size(90%, 60%);
+}
+
+.total-spent-wrapper {
+  @include size(80%, 90%);
+  @include flex-row(center, center);
+
+  p {
+    color: $teal;
+    font-size: 75px;
+  }
+}
+
+.booking-cards-wrapper {
+  @include size(80%, 90%);
+  @include flex-column(center, flex-start);
+  overflow: auto;
+  // padding: 5px 0 5px 0;
+}
+
+.card {
+  @include box-shadow();
+  @include flex-column(flex-start, space-around);
+  min-height: 100px;
+  width: 95%;
+  margin: 10px;
+  background-color: $teal;
+  border-radius: 10px;
+  color: $white;
+
+  p {
+    margin: 3px;
+  }
+}
