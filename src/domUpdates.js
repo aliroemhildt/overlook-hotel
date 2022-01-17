@@ -16,12 +16,12 @@ const dateInput = document.getElementById('date-input');
 const availableRoomsSection = document.getElementById('availableRooms');
 
 const qs = {
-  username,
-  password
+  dashboardMenuButton,
+  bookMenuButton
 }
 
 const domUpdates = {
-  populateBookings(hotel) {
+  populateBookings() {
     cardsSection.innerHTML = '';
     const myBookings = hotel.currentCustomer.bookings;
     console.log(myBookings);
@@ -40,7 +40,7 @@ const domUpdates = {
     });
   },
 
-  populateAvailableRooms(hotel) {
+  populateAvailableRooms() {
     availableRoomsSection.innerHTML = '';
     const availableRooms = hotel.getAvailableRooms(dateInput.value);
     console.log(availableRooms);
@@ -60,20 +60,12 @@ const domUpdates = {
     })
   },
 
-  populateTotalBill(hotel) {
+  populateTotalBill() {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     billSection.innerHTML = '';
     billSection.innerHTML += `
       <p class="total-spent">$${total}</p>
     `;
-  },
-
-  displayCustomerDashboard(hotel) {
-    domUpdates.show([customerDashboard, menu]);
-    domUpdates.hide([bookingDashboard]);
-    dashboardMenuButton.classList.add('clicked');
-    bookMenuButton.classList.remove('clicked');
-    domUpdates.populateBookings(hotel);
   },
 
   hideLoginPage() {
@@ -82,13 +74,25 @@ const domUpdates = {
     main.classList.add('align-center');
   },
 
-  displayBookingDashboard(hotel) {
+  displayCustomerDashboard() {
+    domUpdates.show([customerDashboard, menu]);
+    domUpdates.hide([bookingDashboard]);
+    dashboardMenuButton.classList.add('clicked');
+    bookMenuButton.classList.remove('clicked');
+    domUpdates.populateBookings();
+  },
+
+  displayBookingDashboard() {
     domUpdates.show([bookingDashboard]);
     domUpdates.hide([customerDashboard]);
     dashboardMenuButton.classList.remove('clicked');
     bookMenuButton.classList.add('clicked');
     domUpdates.setMinDate();
-    domUpdates.populateAvailableRooms(hotel);
+    domUpdates.populateAvailableRooms();
+  },
+
+  filterRooms() {
+    const rooms =
   },
 
   getTodaysDate() {
@@ -103,12 +107,7 @@ const domUpdates = {
     const today = domUpdates.getTodaysDate().replaceAll('/', '-');
     dateInput.min = today;
     dateInput.defaultValue = today;
-
   },
-  //
-  // {
-  //
-  // },
 
   show(elements) {
     elements.forEach(element => {
@@ -132,9 +131,9 @@ bookMenuButton.addEventListener('click', () => {
 });
 
 dashboardMenuButton.addEventListener('click', () => {
-  domUpdates.displayCustomerDashboard(hotel, hotel.bookings, hotel.currentCustomer.calculateTotalSpent(hotel.rooms))
-})
+  domUpdates.displayCustomerDashboard(hotel);
+});
 
 
 
-export {domUpdates}
+export {domUpdates, qs}

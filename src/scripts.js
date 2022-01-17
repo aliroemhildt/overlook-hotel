@@ -1,7 +1,3 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 import Hotel from './classes/Hotel';
 import Customer from './classes/Customer';
@@ -15,7 +11,33 @@ import {
   fetchSingleCustomer,
   postBooking
 } from './apiCalls'
-import {domUpdates, qs} from './domUpdates';
+import {
+  domUpdates,
+  qs
+} from './domUpdates';
+
+let hotel;
+
+const fetchData = (customer) => {
+  return Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
+  .then(data => {
+    setHotel(data);
+    setCurrentCustomer(customer);
+    domUpdates.hideLoginPage();
+    domUpdates.populateTotalBill();
+    domUpdates.displayCustomerDashboard();
+  })
+  .catch(error => console.log(error)) //this will need a domUpdate fn
+}
+
+const setHotel = (data) => {
+  hotel = new Hotel(data[0].customers, data[1].rooms, data[2].bookings);
+}
+
+const setCurrentCustomer = (customer) => {
+  hotel.currentCustomer = customer;
+  hotel.currentCustomer.getAllBookings(hotel.bookings);
+}
 
 const validateLogin = (username, password) => {
   let customer;
@@ -39,44 +61,12 @@ const getID = (num) => {
   }
 }
 
-let hotel;
-
-const fetchData = (customer) => {
-  return Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
-  .then(data => {
-    setHotel(data);
-    setCurrentCustomer(customer);
-    // const bookings = hotel.currentCustomer.bookings;
-    // const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
-    domUpdates.hideLoginPage();
-    // domUpdates.populateBookings(hotel);
-    domUpdates.populateTotalBill(hotel);
-    domUpdates.displayCustomerDashboard(hotel);
-  })
-  .catch(error => console.log(error)) //this will need a domUpdate fn
-}
-
-const setHotel = (data) => {
-  hotel = new Hotel(data[0].customers, data[1].rooms, data[2].bookings);
-}
-
-const setCurrentCustomer = (customer) => {
-  hotel.currentCustomer = customer;
-  hotel.currentCustomer.getAllBookings(hotel.bookings);
-}
-
-// const displayDashboard = () => {
-//   domUpdates.displayBookings(hotel.currentCustomer.bookings);
-//   domUpdates.displayTotalBill(hotel.currentCustomer.calculateTotalSpent(hotel.rooms));
-// }
-
-// const getRandomIndex = (array) => {
-//   return Math.floor(Math.random() * array.length);
-// }
-
-//window.addEventListener('load', fetchData);
-
 export {validateLogin, hotel}
+
+
+
+
+
 
 
 
