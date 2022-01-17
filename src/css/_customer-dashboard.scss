@@ -32,7 +32,7 @@
 }
 
 .total-spent-wrapper {
-  @include size(80%, 85%);
+  @include size(80%, 90%);
   @include flex-row(center, center);
 }
 
@@ -43,6 +43,10 @@
 }
 
 .card {
-  @include size(90%, 80px);
+  min-height: 100px;
+  width: 95%;
   margin: 10px;
+  background-color: $teal;
+  @include box-shadow();
+  border-radius: 10px;
 }

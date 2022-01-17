@@ -4,6 +4,7 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 import Hotel from './classes/Hotel';
+import Customer from './classes/Customer';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
@@ -14,17 +15,32 @@ import {
   fetchSingleCustomer,
   postBooking
 } from './apiCalls'
-import {domUpdates} from './domUpdates';
+import {domUpdates, qs} from './domUpdates';
+
+const validateLogin = (username, password) => {
+  let customer;
+  if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021')) {
+  fetchSingleCustomer(parseInt(username.slice(8,10)))
+    .then(data => {
+      customer = new Customer(data);
+      fetchData(customer)
+    });
+  } else {
+    console.log('username or password is incorrect');
+  }
+}
 
 let hotel;
 
-const fetchData = () => {
-  Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
+const fetchData = (customer) => {
+  return Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
   .then(data => {
     setHotel(data);
-    setCurrentCustomer();
-    console.log(hotel.currentCustomer.bookings);
-    domUpdates.displayBookings(hotel.currentCustomer.bookings)
+    setCurrentCustomer(customer);
+    const bookings = hotel.currentCustomer.bookings;
+    const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms)
+    domUpdates.displayDashboard(bookings, totalBill);
+    console.log('set data');
   })
   .catch(error => console.log(error)) //this will need a domUpdate fn
 }
@@ -33,18 +49,23 @@ const setHotel = (data) => {
   hotel = new Hotel(data[0].customers, data[1].rooms, data[2].bookings);
 }
 
-const setCurrentCustomer = () => {
-  hotel.currentCustomer = hotel.customers[getRandomIndex(hotel.customers)];
+const setCurrentCustomer = (customer) => {
+  hotel.currentCustomer = customer;
   hotel.currentCustomer.getAllBookings(hotel.bookings);
 }
+
+// const displayDashboard = () => {
+//   domUpdates.displayBookings(hotel.currentCustomer.bookings);
+//   domUpdates.displayTotalBill(hotel.currentCustomer.calculateTotalSpent(hotel.rooms));
+// }
 
 const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
 }
 
-window.addEventListener('load', fetchData);
+//window.addEventListener('load', fetchData);
 
-
+export {validateLogin}
 
 
 
