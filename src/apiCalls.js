@@ -1,23 +1,21 @@
 const fetchCustomers = () => {
   return fetch('http://localhost:3001/api/v1/customers')
-    .then(response => {
-      return response.json()
-    })
+    .then(response => handleError(response))
 }
 
 const fetchRooms = () => {
   return fetch('http://localhost:3001/api/v1/rooms')
-    .then(response => response.json())
+    .then(response => handleError(response))
 }
 
 const fetchBookings = () => {
   return fetch('http://localhost:3001/api/v1/bookings')
-    .then(response => response.json())
+    .then(response => handleError(response))
 }
 
 const fetchSingleCustomer = (id) => {
   return fetch(`http://localhost:3001/api/v1/customers/${id}`)
-    .then(response => response.json())
+    .then(response => handleError(response))
 }
 
 const postBooking = (booking) => {
@@ -26,8 +24,15 @@ const postBooking = (booking) => {
     body: JSON.stringify(booking),
     headers: {'Content-Type': 'application/json'}
   })
-    .then(response => response.json())
+    .then(response => handleError(response))
+}
 
+handleError(response) {
+  if (!response.ok) {
+    throw new Error('Please make sure all fields are filled out correclty');
+  } else {
+    return response.json();
+  }
 }
 
 export {
