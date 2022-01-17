@@ -39,6 +39,14 @@ h4 {
   margin: 20px;
 }
 
+.dashboard {
+  @include size(90%, 93%);
+  @include section-border();
+  @include box-shadow();
+  @include flex-column(center, flex-start);
+  background-color: $light-blue;
+}
+
 .align-left {
   @include flex-row(flex-start, center);
 }

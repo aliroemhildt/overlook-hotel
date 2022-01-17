@@ -1,27 +1,27 @@
-.customer-dashboard {
-  @include size(90%, 93%);
-  @include section-border();
-  @include box-shadow();
-  @include flex-column(center, flex-start);
-  background-color: $light-blue;
+// .dashboard {
+//   @include size(90%, 93%);
+//   @include section-border();
+//   @include box-shadow();
+//   @include flex-column(center, flex-start);
+//   background-color: $light-blue;
+// }
 
-  h3 {
-    margin-bottom: 0;
-  }
+.my-dashboard-text {
+  margin-bottom: 0;
 }
 
-.dashboard-wrapper {
+.customer-dashboard-wrapper {
   @include flex-row(space-around, center);
   @include size(95%, 100%);
 }
 
-.dashboard-section {
+.customer-dashboard-section {
   @include sub-section-border();
   @include box-shadow();
   background-color: $white;
 }
 
-.dashboard-section-left {
+.customer-section-left {
   @include flex-column(center, flex-start);
   @include size(90%, 40%);
 }

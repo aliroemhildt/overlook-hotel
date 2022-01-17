@@ -1,12 +1,26 @@
 nav {
 @include size(25%, 100%);
-@include flex-column(flex-start, center);
+@include flex-row(space-between, flex-start);
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: $teal;
+    font-size: 24px;
+    margin: 20px;
+    font-weight: 700;
+  }
+
+  button:hover {
+    color: $teal-hover;
+    cursor: pointer;
+  }
 }
 
 .welcome {
   font-weight: 400;
   font-size: 36px;
-  margin: 0 0 18px 60px;
+  margin: 20px 0 18px 60px;
   color: $teal;
 }
 
@@ -15,4 +29,24 @@ nav {
   font-size: 60px;
   margin-left: 60px;
   color: $teal;
+}
+
+.menu {
+  @include flex-row(flex-start, center);
+
+  // h2 {
+  //   color: $teal;
+  //   font-size: 24px;
+  //   margin: 20px;
+  //   font-weight: 700;
+  // }
+  //
+  // h2:hover {
+  //   color: $teal-hover;
+  // }
+}
+
+.clicked {
+  color: $teal-hover;
+  pointer-events: none;
 }
