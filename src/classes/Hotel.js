@@ -26,7 +26,6 @@ class Hotel {
   getAvailableRooms(date) {
     date = date.replaceAll('-', '/');
     const bookedRooms = this.bookings.reduce((acc, booking) => {
-      console.log("input date: ", date, "booking date: ", booking.date)
       if (booking.date === date) {
         acc.push(booking.roomNumber);
       }

@@ -1,4 +1,6 @@
-import {validateLogin, hotel} from './scripts';
+import {validateLogin, hotel, updateBookings} from './scripts';
+import {fetchBookings} from './apiCalls';
+import Booking from './classes/Booking';
 
 const cardsSection = document.querySelector('.booking-cards-wrapper');
 const billSection = document.querySelector('.total-spent-wrapper');
@@ -25,40 +27,51 @@ const qs = {
 const domUpdates = {
   populateBookings() {
     cardsSection.innerHTML = '';
-    hotel.currentCustomer.bookings.forEach(booking => {
-      const room = hotel.rooms.find(room => {
-        return room.number === booking.roomNumber
-      });
-      cardsSection.innerHTML += `
-      <div class="card">
+    if (!hotel.currentCustomer.bookings) {
+      cardsSection.innerHTML = `
+        <p>You don't have any bookings yet. Visit the 'Book Now' page to create a new booking!</p>
+      `;
+    } else {
+      hotel.currentCustomer.bookings.forEach(booking => {
+        const room = hotel.rooms.find(room => {
+          return room.number === booking.roomNumber
+        });
+        cardsSection.innerHTML += `
+        <div class="card">
         <p>Date: ${booking.date}</p>
         <p>Room Number: ${booking.roomNumber}<p>
         <p>Room Type: ${room.roomType}</p>
         <p>Cost: $${room.costPerNight}</p>
-      </div>
-      `;
-    });
+        </div>
+        `;
+      });
+    }
   },
 
   populateAvailableRooms() {
     availableRoomsSection.innerHTML = '';
     hotel.getAvailableRooms(dateInput.value);
-    console.log("before filters:", hotel.availableRooms);
     domUpdates.checkFilters();
-    hotel.availableRooms.forEach(room => {
-      const bidet = room.bidet ? 'yes' : 'no';
-      availableRoomsSection.innerHTML += `
-        <div class="card">
-          <p>Room Number: ${room.number}</p>
-          <p>Cost: $${room.costPerNight}<p>
-          <p>Room Type: ${room.roomType}</p>
-          <p>Number of Beds: ${room.numBeds}</p>
-          <p>Bed Size: ${room.bedSize}</p>
-          <p>Bidet: ${bidet}<p>
-          <button class="book-button" id="${room.number}">Book Room</button>
-        </div>
+    if (!hotel.availableRooms.length) {
+      availableRoomsSection.innerHTML =  `
+        <p>Unfortunately, all of our rooms are booked on this day. Please try another date or room type!</p>
       `;
-    })
+    } else {
+      hotel.availableRooms.forEach(room => {
+        const bidet = room.bidet ? 'yes' : 'no';
+        availableRoomsSection.innerHTML += `
+        <div class="card">
+        <p>Room Number: ${room.number}</p>
+        <p>Cost: $${room.costPerNight}<p>
+        <p>Room Type: ${room.roomType}</p>
+        <p>Number of Beds: ${room.numBeds}</p>
+        <p>Bed Size: ${room.bedSize}</p>
+        <p>Bidet: ${bidet}<p>
+        <button class="book-button" id="${room.number}">Book Room</button>
+        </div>
+        `;
+      })
+    }
   },
 
   populateTotalBill() {
@@ -102,7 +115,24 @@ const domUpdates = {
     if (types.length > 0) {
       hotel.filterRooms(types);
     }
-    console.log("check filters: ", hotel.availableRooms);
+  },
+
+  bookRoom(e) {
+    const date = dateInput.value.replaceAll('-', '/')
+    const roomNumber = parseInt(e.target.id)
+    hotel.currentCustomer.createNewBooking(date, roomNumber)
+      .then(response => {
+        console.log(response);
+        fetchBookings()
+          .then(data => {
+            // hotel.bookings = data.bookings.map(booking => new Booking(booking));
+            // hotel.currentCustomer.getAllBookings(hotel.bookings);
+            updateBookings(data.bookings);
+            domUpdates.populateAvailableRooms();
+          })
+          // do I need a catch here?
+      })
+      .catch(error => console.log(error))
   },
 
   getTodaysDate() {
@@ -146,6 +176,10 @@ dashboardMenuButton.addEventListener('click', () => {
 
 filterButton.addEventListener('click', domUpdates.populateAvailableRooms);
 
-
+availableRoomsSection.addEventListener('click', (e) => {
+  if (e.target.classList.contains('book-button')) {
+    domUpdates.bookRoom(e);
+  }
+})
 
 export {domUpdates, qs}

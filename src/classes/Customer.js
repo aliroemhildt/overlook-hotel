@@ -25,15 +25,13 @@ class Customer {
     return totalSpent.toFixed(2);
   }
 
-  createNewBooking(date, room) {
+  createNewBooking(date, roomNumber) {
     const booking = {
       userID: this.id,
-      date: date.replaceAll('-', '/'),
-      roomNumber: room.number
+      date: date,
+      roomNumber: roomNumber
     }
-    postBooking(booking)
-      .then(data => console.log(data))
-      .catch(error => console.log(error))
+    return postBooking(booking)
   }
 }
 

@@ -61,7 +61,12 @@ const getID = (num) => {
   }
 }
 
-export {validateLogin, hotel}
+const updateBookings = (data) => {
+  hotel.bookings = data.bookings.map(booking => new Booking(booking));
+  hotel.currentCustomer.getAllBookings(hotel.bookings);
+}
+
+export {validateLogin, hotel, updateBookings}
 
 
 
