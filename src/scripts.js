@@ -13,7 +13,7 @@ import {
 } from './apiCalls'
 import {
   domUpdates,
-  qs
+  querySelectors
 } from './domUpdates';
 
 let hotel;
@@ -27,7 +27,8 @@ const fetchData = (customer) => {
     domUpdates.populateTotalBill();
     domUpdates.displayCustomerDashboard();
   })
-  .catch(error => console.log(error)) //this will need a domUpdate fn
+  .catch(error => console.log(error))
+  //this will need a domUpdate fn
 }
 
 const setHotel = (data) => {

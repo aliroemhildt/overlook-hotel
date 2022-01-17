@@ -19,9 +19,8 @@ const availableRoomsSection = document.getElementById('availableRooms');
 const filterButton = document.querySelector('.filter-button');
 const typeFilters = document.querySelectorAll('.checkbox-js');
 
-const qs = {
-  dashboardMenuButton,
-  bookMenuButton
+const querySelectors = {
+
 }
 
 const domUpdates = {
@@ -125,8 +124,6 @@ const domUpdates = {
         console.log(response);
         fetchBookings()
           .then(data => {
-            // hotel.bookings = data.bookings.map(booking => new Booking(booking));
-            // hotel.currentCustomer.getAllBookings(hotel.bookings);
             updateBookings(data.bookings);
             domUpdates.populateAvailableRooms();
           })
@@ -182,4 +179,4 @@ availableRoomsSection.addEventListener('click', (e) => {
   }
 })
 
-export {domUpdates, qs}
+export {domUpdates, querySelectors}
