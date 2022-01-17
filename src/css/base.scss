@@ -14,10 +14,10 @@ html {
 }
 
 body {
+  @include size(100%, 100%);
   background-image: $background-image;
   background-size: cover;
   background-repeat: no-repeat;
-  @include size(100%, 100%);
   font-family: 'Noto Sans', sans-serif;
 }
 
@@ -25,14 +25,14 @@ main {
   @include size(75%, 100%);
 }
 
-h2 {
+h3 {
   font-size: 24px;
   font-weight: 700;
   color: $teal;
   margin: 20px;
 }
 
-h3 {
+h4 {
   font-size: 18px;
   font-weight: 700;
   color: $teal;

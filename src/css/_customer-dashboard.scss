@@ -1,11 +1,11 @@
 .customer-dashboard {
-  @include size(90%, 90%);
+  @include size(90%, 93%);
   @include section-border();
   @include box-shadow();
   @include flex-column(center, flex-start);
   background-color: $light-blue;
 
-  h2 {
+  h3 {
     margin-bottom: 0;
   }
 }
