@@ -1,27 +1,23 @@
-.customer-dashboard {
-  @include size(90%, 90%);
-  @include section-border();
-  @include box-shadow();
-  @include flex-column(center, flex-start);
-  background-color: $light-blue;
+// .dashboard {
+//   @include size(90%, 93%);
+//   @include section-border();
+//   @include box-shadow();
+//   @include flex-column(center, flex-start);
+//   background-color: $light-blue;
+// }
 
-  h2 {
-    margin-bottom: 0;
-  }
+.my-dashboard-text {
+  margin-bottom: 0;
 }
 
-.dashboard-wrapper {
+.customer-dashboard-wrapper {
   @include flex-row(space-around, center);
   @include size(95%, 100%);
 }
 
-.dashboard-section {
-  @include sub-section-border();
-  @include box-shadow();
-  background-color: $white;
-}
 
-.dashboard-section-left {
+
+.customer-section-left {
   @include flex-column(center, flex-start);
   @include size(90%, 40%);
 }
@@ -51,7 +47,7 @@
 .card {
   @include box-shadow();
   @include flex-column(flex-start, space-around);
-  min-height: 100px;
+  min-height: 200px;
   width: 95%;
   margin: 10px;
   background-color: $teal;

@@ -11,12 +11,18 @@
 </head>
 <body>
   <nav>
-    <h1 class="welcome">Welcome to the</h1>
-    <h1 class="overlook-title">Overlook Hotel</h1>
+    <div>
+      <h1 class="welcome">Welcome to the</h1>
+      <h1 class="overlook-title">Overlook Hotel</h1>
+    </div>
+    <section class="menu hidden">
+      <button id="dashboard-menu-button">Dashboard</button>
+      <button id="book-menu-button">Book Now</button>
+    </section>
   </nav>
   <main class="align-left">
     <section class="login">
-      <h2 class="login-text">Log In</h2>
+      <h3 class="login-text">Log In</h3>
       <div class="input-wrapper">
         <p>username:</p>
         <input type="text" placeholder="customerid" id="username">
@@ -25,20 +31,58 @@
       </div>
       <button class="login-button">Log In</button>
     </section>
-    <section class="customer-dashboard hidden">
-      <h2>My Dashboard</h2>
-      <div class="dashboard-wrapper">
-        <div class="dashboard-section-left">
-          <h3>Total Bill</h3>
+    <section class="dashboard hidden" id="customer-dashboard">
+      <h3 class="my-dashboard-text">My Dashboard</h3>
+      <div class="customer-dashboard-wrapper">
+        <div class="customer-section-left">
+          <h4>Total Bill</h4>
           <section class="total-spent-wrapper dashboard-section">
           </section>
         </div>
         <div class="dashboard-section-right">
-          <h3>My Bookings</h3>
+          <h4>My Bookings</h4>
           <section class="booking-cards-wrapper dashboard-section">
           </section>
         </div>
-    </div>
+      </div>
+    </section>
+    <section class="dashboard hidden" id="booking-dashboard">
+      <h3>Create New Booking</h3>
+      <div class="booking-dashboard-wrapper">
+        <div class="left-booking-section">
+          <div class="filter-wrapper dashboard-section">
+            <h4>Filter by Room Type:</h4>
+            <section class="room-filters" id="room-filters">
+              <div class="single-filter">
+                <input class="checkbox-js" type="checkbox" id="single-room" value="single-room">
+                <label for="single-room">Single Room</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox-js" type="checkbox" id="junior-room" value="junior-room">
+                <label for="junior-room">Junior Room</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
+                <label for="residential-suite">Residential Suite</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox-js" type="checkbox" id="suite" value="suite">
+                <label for="suite">Suite</label>
+              </div>
+            </section>
+            <div class="date-wrapper">
+              <h4>Select Date<h4>
+              <input type="date" max="2030-01-01" id="date-input">
+            </div>
+            <button class="filter-button">Find Rooms</button>
+          </div>
+        </div>
+        <div class="available-rooms-wrapper">
+          <h4>Available Rooms</h4>
+          <section class="available-rooms dashboard-section" id="availableRooms">
+          </section>
+        </div>
+      </div>
     </section>
   </main>
 

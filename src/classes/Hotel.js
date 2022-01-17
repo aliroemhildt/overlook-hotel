@@ -7,6 +7,7 @@ class Hotel {
     this.rooms = this.setRooms(rooms);
     this.bookings = this.setBookings(bookings);
     this.customers = this.setCustomers(customers);
+    this.availableRooms = [];
     this.currentCustomer = null;
   }
 
@@ -23,13 +24,14 @@ class Hotel {
   }
 
   getAvailableRooms(date) {
+    date = date.replaceAll('-', '/');
     const bookedRooms = this.bookings.reduce((acc, booking) => {
       if (booking.date === date) {
         acc.push(booking.roomNumber);
       }
       return acc;
     }, []);
-    return this.rooms.filter(room => {
+    this.availableRooms = this.rooms.filter(room => {
       return !bookedRooms.includes(room.number);
     });
   }
@@ -47,7 +49,7 @@ class Hotel {
   }
 
   filterRooms(types) {
-    return this.rooms.reduce((acc, room) => {
+    this.availableRooms = this.availableRooms.reduce((acc, room) => {
       types.forEach(type => {
         if (room.roomType === type) {
           acc.push(room);

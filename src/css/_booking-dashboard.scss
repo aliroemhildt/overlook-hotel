@@ -1,0 +1,59 @@
+.booking-dashboard-wrapper {
+  @include flex-row(space-around, center);
+  @include size(90%, 100%);
+}
+
+.left-booking-section {
+  @include size(90%, 30%);
+  @include flex-column(center, space-around);
+}
+
+.filter-wrapper {
+  @include size(100%, 100%);
+  @include flex-column(flex-start, space-around);
+}
+
+.room-filters {
+  @include flex-column(flex-start, center);
+}
+
+.single-filter {
+  @include flex-row(flex-start, center);
+}
+
+.date-wrapper {
+  // @include size (40%,100%);
+  @include flex-column(flex-start, flex-start);
+}
+
+//same as login, try to consolidate
+.filter-button {
+  @include size(30px, 80px);
+  border-radius: 15px;
+  border: none;
+  margin: 20px;
+  background-color: $teal;
+  color: $white;
+}
+
+.filter-button:hover {
+  background-color: $teal-hover;
+  cursor: pointer;
+}
+
+.available-rooms-wrapper {
+  @include size(100%, 65%);
+  @include flex-column(center, flex-start);
+}
+
+.available-rooms {
+  @include size(90%,100%);
+  @include flex-column(center, flex-start);
+  overflow: auto;
+}
+
+.booking-dashboard-section {
+  @include sub-section-border();
+  @include box-shadow();
+  background-color: $white;
+}

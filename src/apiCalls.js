@@ -18,11 +18,8 @@ const fetchBookings = () => {
 const fetchSingleCustomer = (id) => {
   return fetch(`http://localhost:3001/api/v1/customers/${id}`)
     .then(response => response.json())
-    // .then(data => new Customer(data));
 }
 
-// returns message with booking id
-// will need to use the id to instantiate new booking instance
 const postBooking = (booking) => {
   return fetch('http://localhost:3001/api/v1/bookings', {
     method:'POST',
