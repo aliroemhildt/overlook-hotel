@@ -15,9 +15,10 @@
       <h1 class="welcome">Welcome to the</h1>
       <h1 class="overlook-title">Overlook Hotel</h1>
     </div>
-    <div>
-      <h4></h4>
-    </div>
+    <section class="menu hidden">
+      <button id="dashboard-menu-button">Dashboard</button>
+      <button id="book-menu-button">Book Now</button>
+    </section>
   </nav>
   <main class="align-left">
     <section class="login">
@@ -30,20 +31,36 @@
       </div>
       <button class="login-button">Log In</button>
     </section>
-    <section class="customer-dashboard hidden">
-      <h3>My Dashboard</h3>
-      <div class="dashboard-wrapper">
-        <div class="dashboard-section-left">
+    <section class="dashboard hidden" id="customer-dashboard">
+      <h3 class="my-dashboard-text">My Dashboard</h3>
+      <div class="customer-dashboard-wrapper">
+        <div class="customer-section-left">
           <h4>Total Bill</h4>
-          <section class="total-spent-wrapper dashboard-section">
+          <section class="total-spent-wrapper customer-dashboard-section">
           </section>
         </div>
         <div class="dashboard-section-right">
           <h4>My Bookings</h4>
-          <section class="booking-cards-wrapper dashboard-section">
+          <section class="booking-cards-wrapper customer-dashboard-section">
           </section>
         </div>
-    </div>
+      </div>
+    </section>
+    <section class="dashboard hidden" id="booking-dashboard">
+      <section id="room-filters">
+        <input class="checkbox" type="checkbox" id="single-room" value="single-room">
+        <label for="single-room">Single Room</label>
+        <input class="checkbox" type="checkbox" id="junior-room" value="junior-room">
+        <label for="junior-room">Junior Room</label>
+        <input class="checkbox" type="checkbox" id="residential-suite" value="residential-suite">
+        <label for="residential-suite">Residential Suite</label>
+        <input class="checkbox" type="checkbox" id="suite" value="suite">
+        <label for="suite">Suite</label>
+      </section>
+      <input type="date" max="2030-01-01" id="date-input">
+      <section class="booking-section">
+        
+      <section>
     </section>
   </main>
 

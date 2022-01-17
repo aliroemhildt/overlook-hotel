@@ -19,8 +19,9 @@ import {domUpdates, qs} from './domUpdates';
 
 const validateLogin = (username, password) => {
   let customer;
-  if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021')) {
-    fetchSingleCustomer(parseInt(getID(username.slice(8,10))))
+  const id = parseInt(getID(username.slice(8,10)));
+  if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021') && (0 < id && id < 51)) {
+    fetchSingleCustomer(id)
       .then(data => {
         customer = new Customer(data);
         fetchData(customer)
@@ -46,8 +47,11 @@ const fetchData = (customer) => {
     setHotel(data);
     setCurrentCustomer(customer);
     const bookings = hotel.currentCustomer.bookings;
-    const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms)
-    domUpdates.displayDashboard(hotel, bookings, totalBill);
+    const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
+    domUpdates.hideLoginPage();
+    domUpdates.populateBookings(hotel, bookings);
+    domUpdates.populateTotalBill(totalBill);
+    domUpdates.displayCustomerDashboard(hotel, bookings, totalBill);
   })
   .catch(error => console.log(error)) //this will need a domUpdate fn
 }
@@ -66,13 +70,13 @@ const setCurrentCustomer = (customer) => {
 //   domUpdates.displayTotalBill(hotel.currentCustomer.calculateTotalSpent(hotel.rooms));
 // }
 
-const getRandomIndex = (array) => {
-  return Math.floor(Math.random() * array.length);
-}
+// const getRandomIndex = (array) => {
+//   return Math.floor(Math.random() * array.length);
+// }
 
 //window.addEventListener('load', fetchData);
 
-export {validateLogin}
+export {validateLogin, hotel}
 
 
 
