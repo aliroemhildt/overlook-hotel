@@ -36,31 +36,42 @@
       <div class="customer-dashboard-wrapper">
         <div class="customer-section-left">
           <h4>Total Bill</h4>
-          <section class="total-spent-wrapper customer-dashboard-section">
+          <section class="total-spent-wrapper dashboard-section">
           </section>
         </div>
         <div class="dashboard-section-right">
           <h4>My Bookings</h4>
-          <section class="booking-cards-wrapper customer-dashboard-section">
+          <section class="booking-cards-wrapper dashboard-section">
           </section>
         </div>
       </div>
     </section>
     <section class="dashboard hidden" id="booking-dashboard">
-      <section id="room-filters">
-        <input class="checkbox" type="checkbox" id="single-room" value="single-room">
-        <label for="single-room">Single Room</label>
-        <input class="checkbox" type="checkbox" id="junior-room" value="junior-room">
-        <label for="junior-room">Junior Room</label>
-        <input class="checkbox" type="checkbox" id="residential-suite" value="residential-suite">
-        <label for="residential-suite">Residential Suite</label>
-        <input class="checkbox" type="checkbox" id="suite" value="suite">
-        <label for="suite">Suite</label>
-      </section>
-      <input type="date" max="2030-01-01" id="date-input">
-      <section class="booking-section">
-        
-      <section>
+      <h3>Create New Booking</h3>
+      <div class="booking-dashboard-wrapper">
+        <div class="left-booking-section">
+          <div class="filter-wrapper dashboard-section">
+            <h4>Filter by Room Type:</h4>
+            <section id="room-filters">
+              <input class="checkbox" type="checkbox" id="single-room" value="single-room">
+              <label for="single-room">Single Room</label>
+              <input class="checkbox" type="checkbox" id="junior-room" value="junior-room">
+              <label for="junior-room">Junior Room</label>
+              <input class="checkbox" type="checkbox" id="residential-suite" value="residential-suite">
+              <label for="residential-suite">Residential Suite</label>
+              <input class="checkbox" type="checkbox" id="suite" value="suite">
+              <label for="suite">Suite</label>
+            </section>
+          </div>
+          <div class="date-wrapper dashboard-section">
+            <h4>Select Date<h4>
+            <input type="date" max="2030-01-01" id="date-input">
+          </div>
+        </div>
+        <div class="available-rooms-wrapper dashboard-section">
+          <h4>Available Rooms</h4>
+        </div>
+      </div>
     </section>
   </main>
 

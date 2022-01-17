@@ -15,11 +15,7 @@
   @include size(95%, 100%);
 }
 
-.customer-dashboard-section {
-  @include sub-section-border();
-  @include box-shadow();
-  background-color: $white;
-}
+
 
 .customer-section-left {
   @include flex-column(center, flex-start);

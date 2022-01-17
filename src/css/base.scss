@@ -5,6 +5,7 @@
 @import 'nav';
 @import 'login';
 @import 'customer-dashboard';
+@import 'booking-dashboard';
 
 // font-family: 'Noto Sans', sans-serif;
 // 400
@@ -45,6 +46,12 @@ h4 {
   @include box-shadow();
   @include flex-column(center, flex-start);
   background-color: $light-blue;
+}
+
+.dashboard-section {
+  @include sub-section-border();
+  @include box-shadow();
+  background-color: $white;
 }
 
 .align-left {

@@ -1,0 +1,29 @@
+.booking-dashboard-wrapper {
+  @include flex-row(space-around, center);
+  @include size(95%, 100%);
+}
+
+.left-booking-section {
+  @include flex-column(space-around, center);
+}
+
+.filter-wrapper {
+  @include size(100%, 90%);
+  @include flex-column(flex-start, flex-start);
+}
+
+.date-wrapper {
+  @include size (100%,90%);
+  @include flex-column(flex-start, flex-start);
+}
+
+.available-rooms-wrapper {
+  @include size(90%, 65%);
+  @include flex-column(center, flex-start);
+}
+
+.booking-dashboard-section {
+  @include sub-section-border();
+  @include box-shadow();
+  background-color: $white;
+}
