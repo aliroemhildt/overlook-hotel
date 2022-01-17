@@ -34,19 +34,31 @@
 .total-spent-wrapper {
   @include size(80%, 90%);
   @include flex-row(center, center);
+
+  p {
+    color: $teal;
+    font-size: 75px;
+  }
 }
 
 .booking-cards-wrapper {
   @include size(80%, 90%);
   @include flex-column(center, flex-start);
   overflow: auto;
+  // padding: 5px 0 5px 0;
 }
 
 .card {
+  @include box-shadow();
+  @include flex-column(flex-start, space-around);
   min-height: 100px;
   width: 95%;
   margin: 10px;
   background-color: $teal;
-  @include box-shadow();
   border-radius: 10px;
+  color: $white;
+
+  p {
+    margin: 3px;
+  }
 }

@@ -14,10 +14,8 @@ const qs = {
   password
 }
 
-
-
 const domUpdates = {
-  displayBookings(bookings) {
+  displayBookings(hotel, bookings) {
     cardsSection.innerHTML = '';
     bookings.forEach(booking => {
       const room = hotel.rooms.find(room => {
@@ -27,7 +25,8 @@ const domUpdates = {
       <div class="card">
         <p>Date: ${booking.date}</p>
         <p>Room Number: ${booking.roomNumber}<p>
-        <p>Room Type: ${room.type}</p>
+        <p>Room Type: ${room.roomType}</p>
+        <p>Cost: $${room.costPerNight}</p>
       </div>
       `;
     });
@@ -40,8 +39,8 @@ const domUpdates = {
     `;
   },
 
-  displayDashboard(bookings, num) {
-    domUpdates.displayBookings(bookings);
+  displayDashboard(hotel, bookings, num) {
+    domUpdates.displayBookings(hotel, bookings);
     domUpdates.displayTotalBill(num);
     main.classList.remove('align-left');
     main.classList.add('align-center');

@@ -20,13 +20,21 @@ import {domUpdates, qs} from './domUpdates';
 const validateLogin = (username, password) => {
   let customer;
   if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021')) {
-  fetchSingleCustomer(parseInt(username.slice(8,10)))
-    .then(data => {
-      customer = new Customer(data);
-      fetchData(customer)
-    });
+    fetchSingleCustomer(parseInt(getID(username.slice(8,10))))
+      .then(data => {
+        customer = new Customer(data);
+        fetchData(customer)
+      });
   } else {
     console.log('username or password is incorrect');
+  }
+}
+
+const getID = (num) => {
+  if (num.slice(0,1) === '0') {
+    return num.slice(1);
+  } else {
+    return num;
   }
 }
 
@@ -39,8 +47,7 @@ const fetchData = (customer) => {
     setCurrentCustomer(customer);
     const bookings = hotel.currentCustomer.bookings;
     const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms)
-    domUpdates.displayDashboard(bookings, totalBill);
-    console.log('set data');
+    domUpdates.displayDashboard(hotel, bookings, totalBill);
   })
   .catch(error => console.log(error)) //this will need a domUpdate fn
 }
