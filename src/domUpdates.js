@@ -13,6 +13,7 @@ const menu = document.querySelector('.menu');
 const bookMenuButton = document.getElementById('book-menu-button');
 const dashboardMenuButton = document.getElementById('dashboard-menu-button');
 const dateInput = document.getElementById('date-input');
+const availableRoomsSection = document.getElementById('availableRooms');
 
 const qs = {
   username,
@@ -20,9 +21,9 @@ const qs = {
 }
 
 const domUpdates = {
-  populateBookings(hotel, bookings) {
+  populateBookings(hotel) {
     cardsSection.innerHTML = '';
-    bookings.forEach(booking => {
+    hotel.currentCustomer.bookings.forEach(booking => {
       const room = hotel.rooms.find(room => {
         return room.number === booking.roomNumber
       });
@@ -37,19 +38,39 @@ const domUpdates = {
     });
   },
 
-  populateTotalBill(num) {
+  populateAvailableRooms(hotel) {
+    availableRoomsSection.innerHTML = '';
+    const rooms = hotel.getAvailableRooms(dateInput.value);
+    rooms.forEach(room => {
+      const bidet = room.bidet ? 'yes' : 'no';
+      availableRoomsSection.innerHTML += `
+        <div class="card">
+          <p>Room Number: ${room.number}</p>
+          <p>Cost: $${room.costPerNight}<p>
+          <p>Room Type: ${room.roomType}</p>
+          <p>Number of Beds: ${room.bedSize}</p>
+          <p>Bed Size: ${room.bedSize}</p>
+          <p>Bidet: ${bidet}<p>
+          <button class="book-button" id="${room.number}">Book Room</button>
+        </div>
+      `;
+    })
+  },
+
+  populateTotalBill(hotel) {
+    const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     billSection.innerHTML = '';
     billSection.innerHTML += `
-      <p class="total-spent">$${num}</p>
+      <p class="total-spent">$${total}</p>
     `;
   },
 
-  displayCustomerDashboard(hotel, bookings) {
+  displayCustomerDashboard(hotel) {
     domUpdates.show([customerDashboard, menu]);
     domUpdates.hide([bookingDashboard]);
     dashboardMenuButton.classList.add('clicked');
     bookMenuButton.classList.remove('clicked');
-
+    domUpdates.populateBookings(hotel);
   },
 
   hideLoginPage() {
@@ -58,12 +79,13 @@ const domUpdates = {
     main.classList.add('align-center');
   },
 
-  displayBookingDashboard() {
+  displayBookingDashboard(hotel) {
     domUpdates.show([bookingDashboard]);
     domUpdates.hide([customerDashboard]);
     dashboardMenuButton.classList.remove('clicked');
     bookMenuButton.classList.add('clicked');
     domUpdates.setMinDate();
+    domUpdates.populateAvailableRooms(hotel);
   },
 
   getTodaysDate() {
@@ -75,7 +97,10 @@ const domUpdates = {
   },
 
   setMinDate() {
-    dateInput.min = domUpdates.getTodaysDate().replaceAll('/', '-');
+    const today = domUpdates.getTodaysDate().replaceAll('/', '-');
+    dateInput.min = today;
+    dateInput.defaultValue = today;
+
   },
   //
   // {
@@ -99,7 +124,9 @@ loginButton.addEventListener('click', () => {
   validateLogin(username.value, password.value)
 });
 
-bookMenuButton.addEventListener('click', domUpdates.displayBookingDashboard);
+bookMenuButton.addEventListener('click', () => {
+  domUpdates.displayBookingDashboard(hotel);
+});
 
 dashboardMenuButton.addEventListener('click', () => {
   domUpdates.displayCustomerDashboard(hotel, hotel.bookings, hotel.currentCustomer.calculateTotalSpent(hotel.rooms))

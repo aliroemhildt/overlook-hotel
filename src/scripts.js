@@ -46,12 +46,12 @@ const fetchData = (customer) => {
   .then(data => {
     setHotel(data);
     setCurrentCustomer(customer);
-    const bookings = hotel.currentCustomer.bookings;
-    const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
+    // const bookings = hotel.currentCustomer.bookings;
+    // const totalBill = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     domUpdates.hideLoginPage();
-    domUpdates.populateBookings(hotel, bookings);
-    domUpdates.populateTotalBill(totalBill);
-    domUpdates.displayCustomerDashboard(hotel, bookings, totalBill);
+    domUpdates.populateBookings(hotel);
+    domUpdates.populateTotalBill(hotel);
+    domUpdates.displayCustomerDashboard(hotel);
   })
   .catch(error => console.log(error)) //this will need a domUpdate fn
 }
