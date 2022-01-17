@@ -1,25 +1,40 @@
 .booking-dashboard-wrapper {
   @include flex-row(space-around, center);
-  @include size(95%, 100%);
+  @include size(90%, 100%);
 }
 
 .left-booking-section {
-  @include flex-column(space-around, center);
+  @include size(90%, 30%);
+  @include flex-column(center, space-around);
 }
 
 .filter-wrapper {
-  @include size(100%, 90%);
+  @include size(40%, 100%);
   @include flex-column(flex-start, flex-start);
 }
 
+.room-filters {
+  @include flex-column(flex-start, center);
+}
+
+.single-filter {
+  @include flex-row(flex-start, center);
+}
+
 .date-wrapper {
-  @include size (100%,90%);
+  @include size (40%,100%);
   @include flex-column(flex-start, flex-start);
 }
 
 .available-rooms-wrapper {
   @include size(90%, 65%);
   @include flex-column(center, flex-start);
+}
+
+.available-rooms {
+  @include size(100%,90%);
+  @include flex-column(center, flex-start);
+  overflow: auto;
 }
 
 .booking-dashboard-section {

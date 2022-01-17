@@ -40,15 +40,16 @@ const domUpdates = {
 
   populateAvailableRooms(hotel) {
     availableRoomsSection.innerHTML = '';
-    const rooms = hotel.getAvailableRooms(dateInput.value);
-    rooms.forEach(room => {
+    const availableRooms = hotel.getAvailableRooms(dateInput.value);
+    console.log(availableRooms);
+    availableRooms.forEach(room => {
       const bidet = room.bidet ? 'yes' : 'no';
       availableRoomsSection.innerHTML += `
         <div class="card">
           <p>Room Number: ${room.number}</p>
           <p>Cost: $${room.costPerNight}<p>
           <p>Room Type: ${room.roomType}</p>
-          <p>Number of Beds: ${room.bedSize}</p>
+          <p>Number of Beds: ${room.numBeds}</p>
           <p>Bed Size: ${room.bedSize}</p>
           <p>Bidet: ${bidet}<p>
           <button class="book-button" id="${room.number}">Book Room</button>

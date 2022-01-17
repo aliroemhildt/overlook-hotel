@@ -52,15 +52,23 @@
         <div class="left-booking-section">
           <div class="filter-wrapper dashboard-section">
             <h4>Filter by Room Type:</h4>
-            <section id="room-filters">
-              <input class="checkbox" type="checkbox" id="single-room" value="single-room">
-              <label for="single-room">Single Room</label>
-              <input class="checkbox" type="checkbox" id="junior-room" value="junior-room">
-              <label for="junior-room">Junior Room</label>
-              <input class="checkbox" type="checkbox" id="residential-suite" value="residential-suite">
-              <label for="residential-suite">Residential Suite</label>
-              <input class="checkbox" type="checkbox" id="suite" value="suite">
-              <label for="suite">Suite</label>
+            <section class="room-filters" id="room-filters">
+              <div class="single-filter">
+                <input class="checkbox" type="checkbox" id="single-room" value="single-room">
+                <label for="single-room">Single Room</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox" type="checkbox" id="junior-room" value="junior-room">
+                <label for="junior-room">Junior Room</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox" type="checkbox" id="residential-suite" value="residential-suite">
+                <label for="residential-suite">Residential Suite</label>
+              </div>
+              <div class="single-filter">
+                <input class="checkbox" type="checkbox" id="suite" value="suite">
+                <label for="suite">Suite</label>
+              </div>
             </section>
           </div>
           <div class="date-wrapper dashboard-section">
@@ -68,9 +76,9 @@
             <input type="date" max="2030-01-01" id="date-input">
           </div>
         </div>
-        <div class="available-rooms-wrapper dashboard-section">
+        <div class="available-rooms-wrapper">
           <h4>Available Rooms</h4>
-          <section id="availableRooms">
+          <section class="available-rooms dashboard-section" id="availableRooms">
           </section>
         </div>
       </div>

@@ -47,7 +47,7 @@
 .card {
   @include box-shadow();
   @include flex-column(flex-start, space-around);
-  min-height: 100px;
+  min-height: 200px;
   width: 95%;
   margin: 10px;
   background-color: $teal;
