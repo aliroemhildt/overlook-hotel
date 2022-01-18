@@ -53,22 +53,21 @@ const domUpdates = {
     hotel.getAvailableRooms(dateInput.value);
     domUpdates.checkFilters();
     if (!hotel.availableRooms.length) {
-      availableRoomsSection.innerHTML =  `
-        <p>Unfortunately, all of our rooms are booked on this day. Please try another date or room type!</p>
-      `;
+      availableRoomsSection.innerHTML =
+        '<p class="booking-error">Unfortunately, all of our rooms are booked on this day. Please try another date or room type!</p>';
     } else {
       hotel.availableRooms.forEach(room => {
         const bidet = room.bidet ? 'yes' : 'no';
         availableRoomsSection.innerHTML += `
-        <section class="card" tabindex="0">
-        <p>Room Number: ${room.number}</p>
-        <p>Cost: $${room.costPerNight}<p>
-        <p>Room Type: ${room.roomType}</p>
-        <p>Number of Beds: ${room.numBeds}</p>
-        <p>Bed Size: ${room.bedSize}</p>
-        <p>Bidet: ${bidet}<p>
-        <button class="book-button" id="${room.number}">Book Room</button>
-        </section>
+          <section class="card" tabindex="0">
+            <p>Room Number: ${room.number}</p>
+            <p>Cost: $${room.costPerNight}<p>
+            <p>Room Type: ${room.roomType}</p>
+            <p>Number of Beds: ${room.numBeds}</p>
+            <p>Bed Size: ${room.bedSize}</p>
+            <p>Bidet: ${bidet}<p>
+            <button class="book-button" id="${room.number}">Book Room</button>
+          </section>
         `;
       })
     }
@@ -139,7 +138,7 @@ const domUpdates = {
   },
 
   displayBookingError() {
-    availableRoomsSection.innerHTML = '<p>Something went wrong. Reload the page and try again.</p>';
+    availableRoomsSection.innerHTML = '<p class="booking-error">Something went wrong. Reload the page and try again.</p>';
   },
 
   displayLoginUserError() {

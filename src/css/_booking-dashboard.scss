@@ -4,56 +4,70 @@
 }
 
 .left-booking-section {
-  @include size(90%, 30%);
-  @include flex-column(center, space-around);
+  @include size(100%, 30%);
+  @include flex-column(center, flex-start);
 }
 
 .filter-wrapper {
-  @include size(100%, 100%);
+  @include size(80%, 85%);
   @include flex-column(flex-start, space-around);
+  // padding: 12px;
 }
 
 .room-filters {
   @include flex-column(flex-start, center);
+  margin: 12px;
 }
 
 .single-filter {
   @include flex-row(flex-start, center);
+  flex-direction: row-reverse;
 }
 
 .date-wrapper {
-  // @include size (40%,100%);
   @include flex-column(flex-start, flex-start);
+  margin: 12px;
 }
 
+.filter-button-wrapper {
+  @include flex-row(center,center);
+  @include size('',100%);
+}
 //same as login, try to consolidate
-.filter-button {
-  @include size(30px, 80px);
-  border-radius: 15px;
-  border: none;
-  margin: 20px;
-  background-color: $teal;
-  color: $white;
-}
-
-.filter-button:hover {
-  background-color: $teal-hover;
-  cursor: pointer;
-}
+// .filter-button {
+//   @include size(30px, 80px);
+//   border-radius: 15px;
+//   border: none;
+//   margin: 20px;
+//   background-color: $teal;
+//   color: $white;
+// }
+//
+// .filter-button:hover {
+//   background-color: $teal-hover;
+//   cursor: pointer;
+// }
 
 .available-rooms-wrapper {
-  @include size(100%, 65%);
-  @include flex-column(center, flex-start);
-}
-
-.available-rooms {
-  @include size(90%,100%);
+  @include size(80%, 90%);
   @include flex-column(center, flex-start);
   overflow: auto;
+}
+
+.available-rooms-section {
+  @include size(100%, 70%);
+  @include flex-column(center, flex-start);
 }
 
 .booking-dashboard-section {
   @include sub-section-border();
   @include box-shadow();
   background-color: $white;
+}
+
+.booking-error {
+  font-size: 18px;
+  font-weight:400;
+  color:$red;
+  margin: 25px;
 }
