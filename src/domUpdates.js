@@ -2,23 +2,23 @@ import {validateLogin, hotel, updateBookings} from './scripts';
 import {fetchBookings} from './apiCalls';
 import Booking from './classes/Booking';
 
-const cardsSection = document.querySelector('.booking-cards-wrapper');
-const billSection = document.querySelector('.total-spent-wrapper');
-const loginButton = document.querySelector('.login-button');
+const main = document.querySelector('main');
+const menu = document.getElementById('menu');
+const loginPage = document.getElementById('loginPage')
 const username = document.getElementById('username');
 const password = document.getElementById('password');
-const main = document.querySelector('main');
-const customerDashboard = document.getElementById('customer-dashboard');
+const loginButton = document.getElementById('loginButton');
+const customerDashboard = document.getElementById('customerDashboard');
+const cardsSection = document.getElementById('cardsSection');
+const totalSpentSection = document.getElementById('totalSpentSection');
 const bookingDashboard = document.getElementById('booking-dashboard');
-const loginPage = document.querySelector('.login')
-const menu = document.querySelector('.menu');
-const bookMenuButton = document.getElementById('book-menu-button');
-const dashboardMenuButton = document.getElementById('dashboard-menu-button');
-const dateInput = document.getElementById('date-input');
+const bookMenuButton = document.getElementById('bookMenuButton');
+const dashboardMenuButton = document.getElementById('dashboardMenuButton');
+const dateInput = document.getElementById('dateInput');
 const availableRoomsSection = document.getElementById('availableRooms');
-const filterButton = document.querySelector('.filter-button');
+const filterButton = document.getElementById('filterButton');
 const typeFilters = document.querySelectorAll('.checkbox-js');
-const errorMessage = document.getElementById('error-message');
+const errorMessage = document.getElementById('errorMessage');
 
 const querySelectors = {
 
@@ -73,10 +73,10 @@ const domUpdates = {
     }
   },
 
-  populateTotalBill() {
+  populateTotalSpent() {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
-    billSection.innerHTML = '';
-    billSection.innerHTML += `
+    totalSpentSection.innerHTML = '';
+    totalSpentSection.innerHTML += `
       <h4 class="total-spent">$${total}</h4>
     `;
   },

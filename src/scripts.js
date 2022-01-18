@@ -23,7 +23,7 @@ const fetchData = (customer) => {
     setHotel(data);
     setCurrentCustomer(customer);
     domUpdates.hideLoginPage();
-    domUpdates.populateTotalBill();
+    domUpdates.populateTotalSpent();
     domUpdates.displayCustomerDashboard();
   })
   .catch(error => domUpdates.displayFetchError(error))
@@ -41,7 +41,6 @@ const setCurrentCustomer = (customer) => {
 const validateLogin = (username, password) => {
   let customer;
   const id = getID(username.slice(8,10));
-  console.log(id);
   if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021') && (0 < id && id < 51)) {
     fetchSingleCustomer(id)
       .then(data => {
@@ -55,9 +54,7 @@ const validateLogin = (username, password) => {
 }
 
 const getID = (digits) => {
-  console.log(digits)
   if ((digits < 10) && (digits.slice(0,1) === '0')) {
-    console.log(digits.slice(1,2))
     return parseInt(digits.slice(1,2));
   }  else if (digits > 9) {
     return parseInt(digits);
