@@ -20,10 +20,6 @@ const filterButton = document.getElementById('filterButton');
 const typeFilters = document.querySelectorAll('.checkbox-js');
 const errorMessage = document.getElementById('errorMessage');
 
-const querySelectors = {
-
-}
-
 const domUpdates = {
   populateBookings() {
     cardsSection.innerHTML = '';
@@ -198,4 +194,4 @@ availableRoomsSection.addEventListener('click', (e) => {
   }
 })
 
-export {domUpdates, querySelectors}
+export {domUpdates}

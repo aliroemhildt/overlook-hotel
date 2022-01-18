@@ -2,7 +2,7 @@ import './css/base.scss';
 import Hotel from './classes/Hotel';
 import Customer from './classes/Customer';
 import Booking from './classes/Booking';
-
+import {domUpdates} from './domUpdates';
 import {
   fetchCustomers,
   fetchRooms,
@@ -10,10 +10,6 @@ import {
   fetchSingleCustomer,
   postBooking
 } from './apiCalls'
-import {
-  domUpdates,
-  querySelectors
-} from './domUpdates';
 
 let hotel;
 
