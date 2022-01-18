@@ -16,7 +16,7 @@
 
 .room-filters {
   @include flex-column(flex-start, center);
-  margin: 12px;
+  margin: 20px;
 }
 
 .single-filter {
@@ -26,27 +26,17 @@
 
 .date-wrapper {
   @include flex-column(flex-start, flex-start);
-  margin: 12px;
+  margin: 20px;
+
+  label {
+    margin-bottom: 12px;
+  }
 }
 
 .filter-button-wrapper {
   @include flex-row(center,center);
   @include size('',100%);
 }
-//same as login, try to consolidate
-// .filter-button {
-//   @include size(30px, 80px);
-//   border-radius: 15px;
-//   border: none;
-//   margin: 20px;
-//   background-color: $teal;
-//   color: $white;
-// }
-//
-// .filter-button:hover {
-//   background-color: $teal-hover;
-//   cursor: pointer;
-// }
 
 .available-rooms-wrapper {
   @include size(80%, 90%);

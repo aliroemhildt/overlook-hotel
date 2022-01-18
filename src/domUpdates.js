@@ -77,7 +77,7 @@ const domUpdates = {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     billSection.innerHTML = '';
     billSection.innerHTML += `
-      <p class="total-spent">$${total}</p>
+      <h4 class="total-spent">$${total}</h4>
     `;
   },
 
