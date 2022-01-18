@@ -26,18 +26,33 @@ main {
   @include size(75%, 100%);
 }
 
-h3 {
+h2 {
   font-size: 24px;
   font-weight: 700;
   color: $teal;
   margin: 20px;
 }
 
-h4 {
-  font-size: 18px;
+h3 {
+  font-size: 20px;
   font-weight: 700;
   color: $teal;
   margin: 20px;
+}
+
+.standard-button {
+  @include size(30px, 80px);
+  border-radius: 15px;
+  border: none;
+  margin: 20px;
+  width: 100px;
+  background-color: $teal;
+  color: $white;
+}
+
+.standard-button:hover {
+  background-color: $teal-hover;
+  cursor: pointer;
 }
 
 .dashboard {

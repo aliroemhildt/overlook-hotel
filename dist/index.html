@@ -22,65 +22,67 @@
   </nav>
   <main class="align-left">
     <section class="login" tabindex="0">
-      <h3 class="login-text">Log In</h3>
+      <h2 class="login-text">Log In</h2>
       <div class="input-wrapper">
         <label for="username">username:</label>
         <input type="text" placeholder="customerid" id="username">
         <label for="password">password:</label>
         <input type="text" placeholder="overlook2021" id="password">
       </div>
-      <button class="login-button">Log In</button>
+      <button class="login-button standard-button">Log In</button>
       <p id="error-message"></p>
     </section>
     <section class="dashboard hidden" id="customer-dashboard" tabindex="0">
-      <h3 class="my-dashboard-text">My Dashboard</h3>
+      <h2 class="my-dashboard-text">My Dashboard</h2>
       <div class="customer-dashboard-wrapper">
         <div class="customer-section-left">
-          <h4>Total Bill</h4>
+          <h3>Total Bill</h3>
           <section class="total-spent-wrapper dashboard-section" tabindex="0">
           </section>
         </div>
         <div class="dashboard-section-right">
-          <h4>My Bookings</h4>
+          <h3>My Bookings</h3>
           <section class="booking-cards-wrapper dashboard-section" tabindex="0">
           </section>
         </div>
       </div>
     </section>
-    <section class="dashboard hidden" id="booking-dashboard">
-      <h3>Create New Booking</h3>
+    <section class="dashboard hidden" id="booking-dashboard" tabindex="0">
+      <h2>Create New Booking</h2>
       <div class="booking-dashboard-wrapper">
         <div class="left-booking-section">
-          <div class="filter-wrapper dashboard-section">
-            <h4>Filter by Room Type:</h4>
+          <h3>Filter by Room Type:</h3>
+          <div class="filter-wrapper dashboard-section" tabindex="0">
             <section class="room-filters" id="room-filters">
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="single-room" value="single-room">
                 <label for="single-room">Single Room</label>
+                <input class="checkbox-js" type="checkbox" id="single-room" value="single-room">
               </div>
               <div class="single-filter">
+                <label for="junior-suite">Junior Suite</label>
                 <input class="checkbox-js" type="checkbox" id="junior-suite" value="junior-suite">
-                <label for="junior-suite">Junior Room</label>
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
                 <label for="residential-suite">Residential Suite</label>
+                <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="suite" value="suite">
                 <label for="suite">Suite</label>
+                <input class="checkbox-js" type="checkbox" id="suite" value="suite">
               </div>
             </section>
             <div class="date-wrapper">
-              <h4>Select Date<h4>
+              <label for="date-input">Select Date</label>
               <input type="date" max="2030-01-01" id="date-input">
             </div>
-            <button class="filter-button">Find Rooms</button>
+            <div class="filter-button-wrapper">
+              <button class="filter-button standard-button">Find Rooms</button>
+            </div>
           </div>
         </div>
-        <div class="available-rooms-wrapper">
-          <h4>Available Rooms</h4>
-          <section class="available-rooms dashboard-section" id="availableRooms">
+        <div class="available-rooms-section">
+          <h3>Available Rooms</h3>
+          <section class="available-rooms-wrapper dashboard-section" id="availableRooms" tabindex="0">
           </section>
         </div>
       </div>
