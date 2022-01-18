@@ -2,9 +2,7 @@ import './css/base.scss';
 import Hotel from './classes/Hotel';
 import Customer from './classes/Customer';
 import Booking from './classes/Booking';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
-
+import {domUpdates} from './domUpdates';
 import {
   fetchCustomers,
   fetchRooms,
@@ -12,10 +10,6 @@ import {
   fetchSingleCustomer,
   postBooking
 } from './apiCalls'
-import {
-  domUpdates,
-  querySelectors
-} from './domUpdates';
 
 let hotel;
 
@@ -25,7 +19,7 @@ const fetchData = (customer) => {
     setHotel(data);
     setCurrentCustomer(customer);
     domUpdates.hideLoginPage();
-    domUpdates.populateTotalBill();
+    domUpdates.populateTotalSpent();
     domUpdates.displayCustomerDashboard();
   })
   .catch(error => domUpdates.displayFetchError(error))
@@ -43,7 +37,6 @@ const setCurrentCustomer = (customer) => {
 const validateLogin = (username, password) => {
   let customer;
   const id = getID(username.slice(8,10));
-  console.log(id);
   if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021') && (0 < id && id < 51)) {
     fetchSingleCustomer(id)
       .then(data => {
@@ -57,9 +50,7 @@ const validateLogin = (username, password) => {
 }
 
 const getID = (digits) => {
-  console.log(digits)
   if ((digits < 10) && (digits.slice(0,1) === '0')) {
-    console.log(digits.slice(1,2))
     return parseInt(digits.slice(1,2));
   }  else if (digits > 9) {
     return parseInt(digits);
@@ -72,59 +63,3 @@ const updateBookings = (data) => {
 }
 
 export {validateLogin, hotel, updateBookings}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// test fetch requests
-// const p1 = document.querySelector('.p-1-js');
-// const p2 = document.querySelector('.p-2-js');
-// const postButton = document.querySelector('.post-js');
-// const lengthCustomers = document.querySelector('.length-js');
-//
-// fetchCustomers()
-//   .then(data => {
-//     p1.innerText += ` ${data.customers[0].name}`;
-//   });
-//
-// fetchSingleCustomer(10)
-//   .then(data => {
-//     p2.innerText += ` ${data.name}`;
-//   });
-//
-// const showLengthBookingsAPI = () => {
-//   fetchBookings()
-//     .then(data => {
-//       console.log(data.bookings);
-//       lengthCustomers.innerText = `Number of bookings: ${data.bookings.length}`;
-//     })
-// }
-//
-// showLengthBookingsAPI();
-//
-// const postData = () => {
-//   postBooking({
-//   userID: 1,
-//   date: '2022/11/20',
-//   roomNumber: 15,
-//   })
-//     .then(data => {
-//       console.log(data.newBooking)
-//       showLengthBookingsAPI()
-//     })
-//   }
-//
-//
-// postButton.addEventListener('click', postData);
-
-// to delete:
-// fetch('http://localhost:3001/api/v1/bookings/<id>', {method: "DELETE"})

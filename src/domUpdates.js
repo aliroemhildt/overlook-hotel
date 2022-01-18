@@ -2,43 +2,55 @@ import {validateLogin, hotel, updateBookings} from './scripts';
 import {fetchBookings} from './apiCalls';
 import Booking from './classes/Booking';
 
-const cardsSection = document.querySelector('.booking-cards-wrapper');
-const billSection = document.querySelector('.total-spent-wrapper');
-const loginButton = document.querySelector('.login-button');
+const main = document.querySelector('main');
+const menu = document.getElementById('menu');
+const loginPage = document.getElementById('loginPage')
 const username = document.getElementById('username');
 const password = document.getElementById('password');
-const main = document.querySelector('main');
-const customerDashboard = document.getElementById('customer-dashboard');
+const loginButton = document.getElementById('loginButton');
+const customerDashboard = document.getElementById('customerDashboard');
+const cardsSection = document.getElementById('cardsSection');
+const totalSpentSection = document.getElementById('totalSpentSection');
 const bookingDashboard = document.getElementById('booking-dashboard');
-const loginPage = document.querySelector('.login')
-const menu = document.querySelector('.menu');
-const bookMenuButton = document.getElementById('book-menu-button');
-const dashboardMenuButton = document.getElementById('dashboard-menu-button');
-const dateInput = document.getElementById('date-input');
+const bookMenuButton = document.getElementById('bookMenuButton');
+const dashboardMenuButton = document.getElementById('dashboardMenuButton');
+const dateInput = document.getElementById('dateInput');
 const availableRoomsSection = document.getElementById('availableRooms');
-const filterButton = document.querySelector('.filter-button');
+const filterButton = document.getElementById('filterButton');
 const typeFilters = document.querySelectorAll('.checkbox-js');
-const errorMessage = document.getElementById('error-message');
-
-const querySelectors = {
-
-}
+const errorMessage = document.getElementById('errorMessage');
 
 const domUpdates = {
   populateBookings() {
     cardsSection.innerHTML = '';
+    domUpdates.createBookingCards();
+  },
+
+  formatDate(date) {
+    const mm = date.slice(5, 7)
+    const dd = date.slice(8,10)
+    const yyyy = date.slice(0, 4)
+    return mm + '/' + dd + '/' + yyyy;
+  },
+
+  createBookingCards() {
     if (!hotel.currentCustomer.bookings) {
       cardsSection.innerHTML = `
         <p>You don't have any bookings yet. Visit the 'Book Now' page to create a new booking!</p>
       `;
     } else {
-      hotel.currentCustomer.bookings.forEach(booking => {
+      const cards = hotel.currentCustomer.bookings.sort((a, b) => {
+        const aDate = domUpdates.formatDate(a.date);
+        const bDate = domUpdates.formatDate(b.date);
+        return new Date(aDate) - new Date(bDate);
+      });
+      cards.forEach(booking => {
         const room = hotel.rooms.find(room => {
           return room.number === booking.roomNumber
         });
         cardsSection.innerHTML += `
         <section class="card" tabindex="0">
-        <p>Date: ${booking.date}</p>
+        <p>Date: ${domUpdates.formatDate(booking.date)}</p>
         <p>Room Number: ${booking.roomNumber}<p>
         <p>Room Type: ${room.roomType}</p>
         <p>Cost: $${room.costPerNight}</p>
@@ -52,9 +64,13 @@ const domUpdates = {
     availableRoomsSection.innerHTML = '';
     hotel.getAvailableRooms(dateInput.value);
     domUpdates.checkFilters();
+    domUpdates.createRoomCards();
+  },
+
+  createRoomCards() {
     if (!hotel.availableRooms.length) {
       availableRoomsSection.innerHTML =
-        '<p class="booking-error">Unfortunately, all of our rooms are booked on this day. Please try another date or room type!</p>';
+        '<p class="booking-error">Unfortunately, there are no rooms that match this search. Please try another date or room type!</p>';
     } else {
       hotel.availableRooms.forEach(room => {
         const bidet = room.bidet ? 'yes' : 'no';
@@ -73,10 +89,10 @@ const domUpdates = {
     }
   },
 
-  populateTotalBill() {
+  populateTotalSpent() {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
-    billSection.innerHTML = '';
-    billSection.innerHTML += `
+    totalSpentSection.innerHTML = '';
+    totalSpentSection.innerHTML += `
       <h4 class="total-spent">$${total}</h4>
     `;
   },
@@ -198,4 +214,4 @@ availableRoomsSection.addEventListener('click', (e) => {
   }
 })
 
-export {domUpdates, querySelectors}
+export {domUpdates}
