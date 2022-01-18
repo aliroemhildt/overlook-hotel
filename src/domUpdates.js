@@ -77,7 +77,7 @@ const domUpdates = {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     billSection.innerHTML = '';
     billSection.innerHTML += `
-      <p class="total-spent">$${total}</p>
+      <h4 class="total-spent">$${total}</h4>
     `;
   },
 
@@ -178,9 +178,13 @@ const domUpdates = {
   }
 }
 
-loginButton.addEventListener('click', () => {
-  validateLogin(username.value, password.value)
-});
+// loginButton.addEventListener('click', () => {
+//   validateLogin(username.value, password.value)
+// });
+
+window.addEventListener('load', () => {
+  validateLogin('customer01', 'overlook2021');
+})
 
 bookMenuButton.addEventListener('click', () => {
   domUpdates.displayBookingDashboard(hotel);

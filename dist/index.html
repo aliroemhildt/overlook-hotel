@@ -20,8 +20,8 @@
       <button id="book-menu-button">Book Now</button>
     </section>
   </nav>
-  <main class="align-left">
-    <section class="login" tabindex="0">
+  <main class="align-center">
+    <section class="login hidden" tabindex="0">
       <h2 class="login-text">Log In</h2>
       <div class="input-wrapper">
         <label for="username">username:</label>
@@ -32,7 +32,7 @@
       <button class="login-button standard-button">Log In</button>
       <p id="error-message"></p>
     </section>
-    <section class="dashboard hidden" id="customer-dashboard" tabindex="0">
+    <section class="dashboard" id="customer-dashboard" tabindex="0">
       <h2 class="my-dashboard-text">My Dashboard</h2>
       <div class="customer-dashboard-wrapper">
         <div class="customer-section-left">
@@ -88,8 +88,6 @@
       </div>
     </section>
   </main>
-
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>
 </html>
