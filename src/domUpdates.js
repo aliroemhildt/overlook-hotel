@@ -81,7 +81,7 @@ const domUpdates = {
             <p>Room Type: ${room.roomType}</p>
             <p>Number of Beds: ${room.numBeds}</p>
             <p>Bed Size: ${room.bedSize}</p>
-            <p>Bidet: ${bidet}<p>
+            <p>Bidet: ${bidet}</p>
             <button class="book-button" id="${room.number}">Book Room</button>
           </section>
         `;
@@ -137,10 +137,11 @@ const domUpdates = {
     const roomNumber = parseInt(e.target.id)
     hotel.currentCustomer.createNewBooking(date, roomNumber)
       .then(response => {
+        domUpdates.displaySuccessfulBooking(e, date)
         fetchBookings()
           .then(data => {
             updateBookings(data.bookings);
-            domUpdates.populateAvailableRooms();
+            setTimeout(() => {domUpdates.populateAvailableRooms()}, 2500);
           })
           .catch(error => {
             console.log(error.message)
@@ -151,6 +152,14 @@ const domUpdates = {
         console.log(error.message)
         domUpdates.displayBookingError()
       })
+  },
+
+  displaySuccessfulBooking(e, date) {
+    const card = e.target.parentElement;
+    card.innerHTML = `
+      <p>You have booked room ${e.target.id} for ${domUpdates.formatDate(date)}!
+    `;
+    card.classList.add('booked');
   },
 
   displayBookingError() {

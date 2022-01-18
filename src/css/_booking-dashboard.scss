@@ -11,7 +11,10 @@
 .filter-wrapper {
   @include size(80%, 85%);
   @include flex-column(flex-start, space-around);
-  // padding: 12px;
+
+  input:hover {
+    cursor: pointer;
+  }
 }
 
 .room-filters {
@@ -60,4 +63,13 @@
   font-weight:400;
   color:$red;
   margin: 25px;
+}
+
+.booked {
+  background-color: $light-blue;
+
+  p {
+    margin: 12px;
+    color: $teal;
+  }
 }
