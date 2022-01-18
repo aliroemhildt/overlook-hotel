@@ -15,7 +15,7 @@
 .input-wrapper {
   @include flex-column(flex-start, center);
 
-  p {
+  label {
     color: $teal;
     font-size: 18px;
   }

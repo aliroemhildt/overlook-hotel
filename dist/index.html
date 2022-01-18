@@ -21,27 +21,28 @@
     </section>
   </nav>
   <main class="align-left">
-    <section class="login">
+    <section class="login" tabindex="0">
       <h3 class="login-text">Log In</h3>
       <div class="input-wrapper">
-        <p>username:</p>
+        <label for="username">username:</label>
         <input type="text" placeholder="customerid" id="username">
-        <p>password:</p>
+        <label for="password">password:</label>
         <input type="text" placeholder="overlook2021" id="password">
       </div>
       <button class="login-button">Log In</button>
+      <p id="error-message"></p>
     </section>
-    <section class="dashboard hidden" id="customer-dashboard">
+    <section class="dashboard hidden" id="customer-dashboard" tabindex="0">
       <h3 class="my-dashboard-text">My Dashboard</h3>
       <div class="customer-dashboard-wrapper">
         <div class="customer-section-left">
           <h4>Total Bill</h4>
-          <section class="total-spent-wrapper dashboard-section">
+          <section class="total-spent-wrapper dashboard-section" tabindex="0">
           </section>
         </div>
         <div class="dashboard-section-right">
           <h4>My Bookings</h4>
-          <section class="booking-cards-wrapper dashboard-section">
+          <section class="booking-cards-wrapper dashboard-section" tabindex="0">
           </section>
         </div>
       </div>
@@ -58,8 +59,8 @@
                 <label for="single-room">Single Room</label>
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="junior-room" value="junior-room">
-                <label for="junior-room">Junior Room</label>
+                <input class="checkbox-js" type="checkbox" id="junior-suite" value="junior-suite">
+                <label for="junior-suite">Junior Room</label>
               </div>
               <div class="single-filter">
                 <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
