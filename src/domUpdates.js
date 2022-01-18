@@ -26,19 +26,31 @@ const domUpdates = {
     domUpdates.createBookingCards();
   },
 
+  formatDate(date) {
+    const mm = date.slice(5, 7)
+    const dd = date.slice(8,10)
+    const yyyy = date.slice(0, 4)
+    return mm + '/' + dd + '/' + yyyy;
+  },
+
   createBookingCards() {
     if (!hotel.currentCustomer.bookings) {
       cardsSection.innerHTML = `
         <p>You don't have any bookings yet. Visit the 'Book Now' page to create a new booking!</p>
       `;
     } else {
-      hotel.currentCustomer.bookings.forEach(booking => {
+      const cards = hotel.currentCustomer.bookings.sort((a, b) => {
+        const aDate = domUpdates.formatDate(a.date);
+        const bDate = domUpdates.formatDate(b.date);
+        return new Date(aDate) - new Date(bDate);
+      });
+      cards.forEach(booking => {
         const room = hotel.rooms.find(room => {
           return room.number === booking.roomNumber
         });
         cardsSection.innerHTML += `
         <section class="card" tabindex="0">
-        <p>Date: ${booking.date}</p>
+        <p>Date: ${domUpdates.formatDate(booking.date)}</p>
         <p>Room Number: ${booking.roomNumber}<p>
         <p>Room Type: ${room.roomType}</p>
         <p>Cost: $${room.costPerNight}</p>
