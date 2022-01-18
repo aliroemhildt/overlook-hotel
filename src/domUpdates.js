@@ -18,6 +18,7 @@ const dateInput = document.getElementById('date-input');
 const availableRoomsSection = document.getElementById('availableRooms');
 const filterButton = document.querySelector('.filter-button');
 const typeFilters = document.querySelectorAll('.checkbox-js');
+const errorMessage = document.getElementById('error-message');
 
 const querySelectors = {
 
@@ -36,12 +37,12 @@ const domUpdates = {
           return room.number === booking.roomNumber
         });
         cardsSection.innerHTML += `
-        <div class="card">
+        <section class="card" tabindex="0">
         <p>Date: ${booking.date}</p>
         <p>Room Number: ${booking.roomNumber}<p>
         <p>Room Type: ${room.roomType}</p>
         <p>Cost: $${room.costPerNight}</p>
-        </div>
+        </section>
         `;
       });
     }
@@ -59,7 +60,7 @@ const domUpdates = {
       hotel.availableRooms.forEach(room => {
         const bidet = room.bidet ? 'yes' : 'no';
         availableRoomsSection.innerHTML += `
-        <div class="card">
+        <section class="card" tabindex="0">
         <p>Room Number: ${room.number}</p>
         <p>Cost: $${room.costPerNight}<p>
         <p>Room Type: ${room.roomType}</p>
@@ -67,7 +68,7 @@ const domUpdates = {
         <p>Bed Size: ${room.bedSize}</p>
         <p>Bidet: ${bidet}<p>
         <button class="book-button" id="${room.number}">Book Room</button>
-        </div>
+        </section>
         `;
       })
     }
@@ -126,19 +127,29 @@ const domUpdates = {
             updateBookings(data.bookings);
             domUpdates.populateAvailableRooms();
           })
+          .catch(error => {
+            console.log(error.message)
+            domUpdates.displayBookingError()
+          })
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error.message)
+        domUpdates.displayBookingError()
+      })
   },
 
-  displayError(error) {
+  displayBookingError() {
+    availableRoomsSection.innerHTML = '<p>Something went wrong. Reload the page and try again.</p>';
+  },
 
-  //   function displayFetchErrorMessage(error) {
-  //   let message;
-  //   error.message === 'Failed to fetch' ?
-  //   message = 'Something went wrong. Please check your internet connection' :
-  //   message = error.message;
-  //   domUpdates.updateInnerText(querySelectors.customerDashboard, message);
-  // }
+  displayLoginUserError() {
+    errorMessage.innerText = 'Username or Password is incorrect. Please try again';
+    setTimeout(errorMessage.innerText = '', 3000);
+  },
+
+  displayFetchError(error) {
+    errorMessage.innerText = error.message;
+    setTimeout(() => {errorMessage.innerText = ''}, 3000);
   },
 
   getTodaysDate() {

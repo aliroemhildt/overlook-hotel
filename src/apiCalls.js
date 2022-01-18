@@ -29,7 +29,7 @@ const postBooking = (booking) => {
 
 const handleError = (response) => {
   if (!response.ok) {
-    throw new Error('Please make sure all fields are filled out correclty');
+    throw new Error('Something went wrong. Please reload the page and try again.');
   } else {
     return response.json();
   }
