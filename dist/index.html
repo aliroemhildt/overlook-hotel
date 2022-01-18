@@ -47,32 +47,32 @@
         </div>
       </div>
     </section>
-    <section class="dashboard hidden" id="booking-dashboard">
+    <section class="dashboard hidden" id="booking-dashboard" tabindex="0">
       <h3>Create New Booking</h3>
       <div class="booking-dashboard-wrapper">
         <div class="left-booking-section">
-          <div class="filter-wrapper dashboard-section">
+          <div class="filter-wrapper dashboard-section" tabindex="0">
             <h4>Filter by Room Type:</h4>
             <section class="room-filters" id="room-filters">
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="single-room" value="single-room">
                 <label for="single-room">Single Room</label>
+                <input class="checkbox-js" type="checkbox" id="single-room" value="single-room">
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="junior-suite" value="junior-suite">
                 <label for="junior-suite">Junior Room</label>
+                <input class="checkbox-js" type="checkbox" id="junior-suite" value="junior-suite">
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
                 <label for="residential-suite">Residential Suite</label>
+                <input class="checkbox-js" type="checkbox" id="residential-suite" value="residential-suite">
               </div>
               <div class="single-filter">
-                <input class="checkbox-js" type="checkbox" id="suite" value="suite">
                 <label for="suite">Suite</label>
+                <input class="checkbox-js" type="checkbox" id="suite" value="suite">
               </div>
             </section>
             <div class="date-wrapper">
-              <h4>Select Date<h4>
+              <label for="date-input">Select Date<label>
               <input type="date" max="2030-01-01" id="date-input">
             </div>
             <button class="filter-button">Find Rooms</button>
@@ -80,7 +80,7 @@
         </div>
         <div class="available-rooms-wrapper">
           <h4>Available Rooms</h4>
-          <section class="available-rooms dashboard-section" id="availableRooms">
+          <section class="available-rooms dashboard-section" id="availableRooms" tabindex="0">
           </section>
         </div>
       </div>
