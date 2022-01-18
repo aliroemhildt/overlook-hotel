@@ -1,6 +1,12 @@
 import {validateLogin, hotel, updateBookings} from './scripts';
 import {fetchBookings} from './apiCalls';
+import {roomImages} from './roomImages';
+import './images/junior-suite.png';
+import './images/residential-suite.png';
+import './images/single-room.png';
+import './images/suite.png';
 import Booking from './classes/Booking';
+
 
 const main = document.querySelector('main');
 const menu = document.getElementById('menu');
@@ -40,9 +46,9 @@ const domUpdates = {
       `;
     } else {
       const cards = hotel.currentCustomer.bookings.sort((a, b) => {
-        const aDate = domUpdates.formatDate(a.date);
-        const bDate = domUpdates.formatDate(b.date);
-        return new Date(aDate) - new Date(bDate);
+        // const aDate = domUpdates.formatDate(a.date);
+        // const bDate = domUpdates.formatDate(b.date);
+        return new Date(a.date) - new Date(b.date);
       });
       cards.forEach(booking => {
         const room = hotel.rooms.find(room => {
@@ -50,10 +56,13 @@ const domUpdates = {
         });
         cardsSection.innerHTML += `
         <section class="card" tabindex="0">
-        <p>Date: ${domUpdates.formatDate(booking.date)}</p>
-        <p>Room Number: ${booking.roomNumber}<p>
-        <p>Room Type: ${room.roomType}</p>
-        <p>Cost: $${room.costPerNight}</p>
+        <div class="info">
+          <p>Date: ${domUpdates.formatDate(booking.date)}</p>
+          <p>Room Number: ${booking.roomNumber}<p>
+          <p>Room Type: ${room.roomType}</p>
+          <p>Cost: $${room.costPerNight}</p>
+        </div>
+        <img src='${roomImages[room.roomType]}' alt='${room.roomType} image'>
         </section>
         `;
       });
@@ -61,10 +70,16 @@ const domUpdates = {
   },
 
   populateAvailableRooms() {
-    availableRoomsSection.innerHTML = '';
-    hotel.getAvailableRooms(dateInput.value);
-    domUpdates.checkFilters();
-    domUpdates.createRoomCards();
+    const today = domUpdates.formatDate(domUpdates.getTodaysDate());
+    const input  = domUpdates.formatDate(dateInput.value);
+    console.log(today, input);
+    console.log(input >= today)
+    if (input >= today) {
+      availableRoomsSection.innerHTML = '';
+      hotel.getAvailableRooms(dateInput.value);
+      domUpdates.checkFilters();
+      domUpdates.createRoomCards();
+    }
   },
 
   createRoomCards() {
@@ -76,13 +91,16 @@ const domUpdates = {
         const bidet = room.bidet ? 'yes' : 'no';
         availableRoomsSection.innerHTML += `
           <section class="card" tabindex="0">
-            <p>Room Number: ${room.number}</p>
-            <p>Cost: $${room.costPerNight}<p>
-            <p>Room Type: ${room.roomType}</p>
-            <p>Number of Beds: ${room.numBeds}</p>
-            <p>Bed Size: ${room.bedSize}</p>
-            <p>Bidet: ${bidet}</p>
-            <button class="book-button" id="${room.number}">Book Room</button>
+            <div class="info">
+              <p>Room Number: ${room.number}</p>
+              <p>Cost: $${room.costPerNight}<p>
+              <p>Room Type: ${room.roomType}</p>
+              <p>Number of Beds: ${room.numBeds}</p>
+              <p>Bed Size: ${room.bedSize}</p>
+              <p>Bidet: ${bidet}</p>
+              <button class="book-button" id="${room.number}">Book Room</button>
+            </div>
+            <img src='${roomImages[room.roomType]}' alt='${room.roomType} image'>
           </section>
         `;
       })
@@ -174,7 +192,8 @@ const domUpdates = {
 
   displayLoginUserError() {
     errorMessage.innerText = 'Username or Password is incorrect. Please try again';
-    setTimeout(errorMessage.innerText = '', 3000);
+    console.log(errorMessage)
+    setTimeout(() => {errorMessage.innerText = ''}, 3000);
   },
 
   displayFetchError(error) {

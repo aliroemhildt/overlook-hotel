@@ -68,6 +68,32 @@ h3 {
   background-color: $white;
 }
 
+.card {
+  @include box-shadow();
+  @include flex-row(space-around, center);
+  min-height: 250px;
+  width: 95%;
+  margin: 10px;
+  background-color: $teal;
+  border-radius: 10px;
+  color: $white;
+
+  .info {
+    @include flex-column(flex-start, space-around);
+    margin:5px;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 3px;
+  }
+
+  img {
+    @include size(178px, 267px);
+    margin: 5px;
+  }
+}
+
 .align-left {
   @include flex-row(flex-start, center);
 }

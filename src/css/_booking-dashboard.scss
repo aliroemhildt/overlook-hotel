@@ -1,5 +1,5 @@
 .booking-dashboard-wrapper {
-  @include flex-row(space-around, center);
+  @include flex-row(center, flex-start);
   @include size(90%, 100%);
 }
 
