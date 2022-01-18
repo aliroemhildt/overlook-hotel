@@ -27,7 +27,7 @@ const postBooking = (booking) => {
     .then(response => handleError(response))
 }
 
-handleError(response) {
+const handleError = (response) => {
   if (!response.ok) {
     throw new Error('Please make sure all fields are filled out correclty');
   } else {
