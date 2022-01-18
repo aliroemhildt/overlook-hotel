@@ -23,6 +23,10 @@ const errorMessage = document.getElementById('errorMessage');
 const domUpdates = {
   populateBookings() {
     cardsSection.innerHTML = '';
+    domUpdates.createBookingCards();
+  },
+
+  createBookingCards() {
     if (!hotel.currentCustomer.bookings) {
       cardsSection.innerHTML = `
         <p>You don't have any bookings yet. Visit the 'Book Now' page to create a new booking!</p>
@@ -48,9 +52,13 @@ const domUpdates = {
     availableRoomsSection.innerHTML = '';
     hotel.getAvailableRooms(dateInput.value);
     domUpdates.checkFilters();
+    domUpdates.createRoomCards();
+  },
+
+  createRoomCards() {
     if (!hotel.availableRooms.length) {
       availableRoomsSection.innerHTML =
-        '<p class="booking-error">Unfortunately, all of our rooms are booked on this day. Please try another date or room type!</p>';
+        '<p class="booking-error">Unfortunately, there are no rooms that match this search. Please try another date or room type!</p>';
     } else {
       hotel.availableRooms.forEach(room => {
         const bidet = room.bidet ? 'yes' : 'no';
