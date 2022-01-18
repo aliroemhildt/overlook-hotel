@@ -93,8 +93,14 @@ const domUpdates = {
     const total = hotel.currentCustomer.calculateTotalSpent(hotel.rooms);
     totalSpentSection.innerHTML = '';
     totalSpentSection.innerHTML += `
-      <h4 class="total-spent">$${total}</h4>
+      <h4 class="total-spent">$${domUpdates.addSeparator(total)}</h4>
     `;
+  },
+
+  addSeparator(num) {
+    let str = num.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join('.');
   },
 
   hideLoginPage() {
