@@ -29,7 +29,7 @@
   @include size(80%, 90%);
   @include flex-row(center, center);
 
-  p {
+  h4 {
     color: $teal;
     font-size: 75px;
   }
