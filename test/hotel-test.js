@@ -65,6 +65,8 @@ describe('Hotel', () => {
   });
 
   it('should be able to update its current customer property to hold an instance of Customer', () => {
+    expect(hotel.currentCustomer).to.equal(null);
+
     hotel.currentCustomer = allCustomers[0];
 
     expect(hotel.currentCustomer).to.be.an.instanceof(Customer);
@@ -91,7 +93,7 @@ describe('Hotel', () => {
     ])
   });
 
-  it('should filter all rooms by single room type', () => {
+  it('should filter the available rooms by single room type', () => {
     hotel.getAvailableRooms('2022/02/05');
     hotel.filterRooms(['single room']);
 
@@ -104,7 +106,7 @@ describe('Hotel', () => {
     expect(hotel.availableRooms).to.deep.equal(rooms1);
   });
 
-  it('should filter all rooms by multiple room types', () => {
+  it('should filter the available rooms by multiple room types', () => {
     hotel.getAvailableRooms('2022/02/05');
     hotel.filterRooms([
       'residential suite',
@@ -117,21 +119,6 @@ describe('Hotel', () => {
     ];
 
     expect(hotel.availableRooms).to.deep.equal(rooms2);
-  });
-
-  //is this test necessary?
-  it('should update the available rooms property when a user filters by room type', () => {
-    hotel.getAvailableRooms('2022/02/05');
-    expect(hotel.availableRooms.length).to.equal(5);
-
-    hotel.filterRooms(['single room']);
-
-    expect(hotel.availableRooms.length).to.equal(3);
-    expect(hotel.availableRooms).to.deep.equal([
-      sampleRooms[0],
-      sampleRooms[1],
-      sampleRooms[5]
-    ]);
   });
 
   it('should only filter available rooms by type if they have already been filtered by date', () => {
