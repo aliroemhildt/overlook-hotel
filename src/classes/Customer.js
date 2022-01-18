@@ -22,7 +22,7 @@ class Customer {
       });
       return total;
     }, 0);
-    return totalSpent.toFixed(2);
+    return parseFloat(totalSpent.toFixed(2));
   }
 
   createNewBooking(date, roomNumber) {

@@ -121,15 +121,24 @@ const domUpdates = {
     const roomNumber = parseInt(e.target.id)
     hotel.currentCustomer.createNewBooking(date, roomNumber)
       .then(response => {
-        console.log(response);
         fetchBookings()
           .then(data => {
             updateBookings(data.bookings);
             domUpdates.populateAvailableRooms();
           })
-          // do I need a catch here?
       })
       .catch(error => console.log(error))
+  },
+
+  displayError(error) {
+
+  //   function displayFetchErrorMessage(error) {
+  //   let message;
+  //   error.message === 'Failed to fetch' ?
+  //   message = 'Something went wrong. Please check your internet connection' :
+  //   message = error.message;
+  //   domUpdates.updateInnerText(querySelectors.customerDashboard, message);
+  // }
   },
 
   getTodaysDate() {
