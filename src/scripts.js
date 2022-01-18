@@ -1,6 +1,7 @@
 import './css/base.scss';
 import Hotel from './classes/Hotel';
 import Customer from './classes/Customer';
+import Booking from './classes/Booking';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
@@ -27,8 +28,7 @@ const fetchData = (customer) => {
     domUpdates.populateTotalBill();
     domUpdates.displayCustomerDashboard();
   })
-  .catch(error => console.log(error))
-  //this will need a domUpdate fn
+  .catch(error => domUpdates.displayFetchError(error))
 }
 
 const setHotel = (data) => {
@@ -42,28 +42,32 @@ const setCurrentCustomer = (customer) => {
 
 const validateLogin = (username, password) => {
   let customer;
-  const id = parseInt(getID(username.slice(8,10)));
+  const id = getID(username.slice(8,10));
+  console.log(id);
   if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021') && (0 < id && id < 51)) {
     fetchSingleCustomer(id)
       .then(data => {
         customer = new Customer(data);
         fetchData(customer)
-      });
+      })
+      .catch(error => domUpdates.displayFetchError(error))
   } else {
-    console.log('username or password is incorrect');
+    domUpdates.displayLoginUserError();
   }
 }
 
-const getID = (num) => {
-  if (num.slice(0,1) === '0') {
-    return num.slice(1);
-  } else {
-    return num;
+const getID = (digits) => {
+  console.log(digits)
+  if ((digits < 10) && (digits.slice(0,1) === '0')) {
+    console.log(digits.slice(1,2))
+    return parseInt(digits.slice(1,2));
+  }  else if (digits > 9) {
+    return parseInt(digits);
   }
 }
 
 const updateBookings = (data) => {
-  hotel.bookings = data.bookings.map(booking => new Booking(booking));
+  hotel.bookings = data.map(booking => new Booking(booking));
   hotel.currentCustomer.getAllBookings(hotel.bookings);
 }
 
