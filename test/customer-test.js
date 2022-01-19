@@ -36,8 +36,6 @@ describe('Customer', () => {
 
   it('should get all bookings for that customer', () => {
     customer.getAllBookings(sampleBookings);
-    const booking1 = sampleBookings[4];
-    const booking2 = sampleBookings[7];
     const myBookings = [sampleBookings[4], sampleBookings[7]];
 
     expect(customer.bookings).to.be.an('array');

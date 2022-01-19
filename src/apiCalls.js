@@ -20,7 +20,7 @@ const fetchSingleCustomer = (id) => {
 
 const postBooking = (booking) => {
   return fetch('http://localhost:3001/api/v1/bookings', {
-    method:'POST',
+    method: 'POST',
     body: JSON.stringify(booking),
     headers: {'Content-Type': 'application/json'}
   })

@@ -5,7 +5,6 @@ import './images/junior-suite.png';
 import './images/residential-suite.png';
 import './images/single-room.png';
 import './images/suite.png';
-import Booking from './classes/Booking';
 
 const main = document.querySelector('main');
 const menu = document.getElementById('menu');
@@ -34,7 +33,7 @@ const domUpdates = {
 
   formatDate(date) {
     const mm = date.slice(5, 7)
-    const dd = date.slice(8,10)
+    const dd = date.slice(8, 10)
     const yyyy = date.slice(0, 4)
     return mm + '/' + dd + '/' + yyyy;
   },
@@ -82,7 +81,9 @@ const domUpdates = {
 
   displayDateError() {
     dateError.innerText = 'Please choose a current or future date';
-    setTimeout(() => {dateError.innerText = ''}, 2000);
+    setTimeout(() => {
+      dateError.innerText = ''
+    }, 2000);
   },
 
   createRoomCards() {
@@ -156,7 +157,7 @@ const domUpdates = {
     typeFilters.forEach(checkbox => {
       if (checkbox.checked) {
         types.push(checkbox.value.replace('-', ' '));
-       }
+      }
     });
     if (types.length > 0) {
       hotel.filterRooms(types);
@@ -172,7 +173,9 @@ const domUpdates = {
         fetchBookings()
           .then(data => {
             updateBookings(data.bookings);
-            setTimeout(() => {domUpdates.populateAvailableRooms()}, 2500);
+            setTimeout(() => {
+              domUpdates.populateAvailableRooms();
+            }, 2500);
           })
           .catch(error => {
             console.log(error.message)
@@ -200,12 +203,16 @@ const domUpdates = {
 
   displayLoginUserError() {
     loginError.innerText = 'Username or Password is incorrect. Please try again.';
-    setTimeout(() => {loginError.innerText = ''}, 3000);
+    setTimeout(() => {
+      loginError.innerText = '';
+    }, 3000);
   },
 
   displayFetchError(error) {
     loginError.innerText = error.message;
-    setTimeout(() => {loginError.innerText = ''}, 3000);
+    setTimeout(() => {
+      loginError.innerText = '';
+    }, 3000);
   },
 
   getTodaysDate() {
@@ -251,7 +258,6 @@ filterButton.addEventListener('click', domUpdates.populateAvailableRooms);
 
 availableRoomsSection.addEventListener('click', (e) => {
   if (e.target.classList.contains('book-button-js')) {
-    console.log(e.target.id)
     domUpdates.bookRoom(e);
   }
 });

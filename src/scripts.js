@@ -8,21 +8,20 @@ import {
   fetchRooms,
   fetchBookings,
   fetchSingleCustomer,
-  postBooking
 } from './apiCalls'
 
 let hotel;
 
 const fetchData = (customer) => {
   return Promise.all([fetchCustomers(), fetchRooms(), fetchBookings()])
-  .then(data => {
-    setHotel(data);
-    setCurrentCustomer(customer);
-    domUpdates.hideLoginPage();
-    domUpdates.populateTotalSpent();
-    domUpdates.displayCustomerDashboard();
-  })
-  .catch(error => domUpdates.displayFetchError(error))
+    .then(data => {
+      setHotel(data);
+      setCurrentCustomer(customer);
+      domUpdates.hideLoginPage();
+      domUpdates.populateTotalSpent();
+      domUpdates.displayCustomerDashboard();
+    })
+    .catch(error => domUpdates.displayFetchError(error))
 }
 
 const setHotel = (data) => {
@@ -36,7 +35,7 @@ const setCurrentCustomer = (customer) => {
 
 const validateLogin = (username, password) => {
   let customer;
-  const id = getID(username.slice(8,10));
+  const id = getID(username.slice(8, 10));
   if ((username.length === 10) && (username.slice(0, 8) === 'customer') && (password === 'overlook2021') && (0 < id && id < 51)) {
     fetchSingleCustomer(id)
       .then(data => {
@@ -50,8 +49,8 @@ const validateLogin = (username, password) => {
 }
 
 const getID = (digits) => {
-  if ((digits < 10) && (digits.slice(0,1) === '0')) {
-    return parseInt(digits.slice(1,2));
+  if ((digits < 10) && (digits.slice(0, 1) === '0')) {
+    return parseInt(digits.slice(1, 2));
   }  else if (digits > 9) {
     return parseInt(digits);
   }
