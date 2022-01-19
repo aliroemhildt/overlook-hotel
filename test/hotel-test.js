@@ -12,14 +12,12 @@ describe('Hotel', () => {
   let allRooms;
   let allBookings;
   let allCustomers;
-  let currentCustomer;
 
   beforeEach(() => {
     hotel = new Hotel(sampleCustomers, sampleRooms, sampleBookings);
     allRooms = sampleRooms.map(room => new Room(room));
     allBookings = sampleBookings.map(booking => new Booking(booking));
     allCustomers = sampleCustomers.map(customer => new Customer(customer));
-    currentCustomer = allCustomers[0];
   });
 
   it('should be a function', () => {
