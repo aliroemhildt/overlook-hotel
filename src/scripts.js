@@ -18,7 +18,6 @@ const fetchData = (customer) => {
       setHotel(data);
       setCurrentCustomer(customer);
       domUpdates.hideLoginPage();
-      domUpdates.populateTotalSpent();
       domUpdates.displayCustomerDashboard();
     })
     .catch(error => domUpdates.displayFetchError(error))
