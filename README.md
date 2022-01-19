@@ -26,7 +26,7 @@ Credentials:
  
  <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="100%">
   
-![Login page error](https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif)
+![Login page error](https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif =75%)
   
 ![Login page success](https://media.giphy.com/media/ID8RfzJIu238I0jvdg/giphy.gif)
 
