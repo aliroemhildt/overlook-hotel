@@ -1,7 +1,7 @@
 # OVERLOOK HOTEL
 
 ## Abstract 
-This application was built as the final solo project for Module 2 of Turing School of Software & Design's frontend program. This app is a hotel management tool for customers to create new bookings and view those bookings and their total bill.
+This application was built as the final solo project for Module 2 of [Turing School of Software & Design's](https://turing.edu/) frontend program. This app is a hotel management tool for customers to create new bookings and view those bookings and their total bill.
 
 The focus areas of this project were:
 - Using OOP to drive code design
@@ -15,7 +15,7 @@ The focus areas of this project were:
 - [Future Features](#future-features)
 - [Tech Stack](#technologies-used)
 - [Install Instructions](#instructions)
-- [Authors](#authors)
+- [Authors/Links](#authors)
 
 ## Project Overview
 The application opens to a login page where a customer can enter their credentials. If a user enters the correct credentials, they will enter the app. If their username or password is incorrect, an error message will appear to inform the user to try agian. 
@@ -75,7 +75,7 @@ clone this repo to your local machine:
 - copy the SSH address
 - run ```git clone [remote-address]``` in your terminal
 
-clone the api repo to your local machine (do NOT clone inside of the project repo)
+clone the [overlook api repo](https://github.com/turingschool-examples/overlook-api) to set up the local server:
 - follow this link to the api repo
 - copy the SSH address
 - run ```git clone [remote-address]``` in your terminal
@@ -85,11 +85,16 @@ from inside your local copy of the api repo:
 - run ```npm start``` in your terminal
 
 from inside your local copy of the project repo: 
-- run ```npm install``` in your terminal
-- run ```npm start``` in your terminal
+- run ```npm install``` in a separate terminal tab
+- run ```npm start``` in the terminal
 - copy the url for the localhost 8080 
-- past the url in your browser
+- paste the url in your browser
 - you should now see the Overlook Hotel login page!
+
+## Links
+- [Starter repo](https://github.com/turingschool-examples/webpack-starter-kit) by [Turing School of Software & Design](https://turing.edu/)
+- [Local Server repo](https://github.com/turingschool-examples/overlook-api) by [Turing School of Software & Design](https://turing.edu/)
+- [Project spec](https://frontend.turing.edu/projects/overlook.html) by [Turing School of Software & Design](https://turing.edu/)
 
 ## Authors
 Functionality and design by [Ali Roemhildt](https://github.com/aliroemhildt)
