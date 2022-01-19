@@ -139,6 +139,7 @@ const domUpdates = {
     bookMenuButton.classList.remove('clicked');
     bookMenuButton.disabled = false;
     domUpdates.populateBookings();
+    domUpdates.populateTotalSpent();
   },
 
   displayBookingDashboard() {
