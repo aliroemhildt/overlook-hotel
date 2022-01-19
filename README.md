@@ -24,7 +24,7 @@ Credentials:
 - username: "customer<id>" where id is a number 1-50 (ex: "customer25")
 - password: "overlook2021"
  
- <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="100%">
+ <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="75%">
   
 ![Login page error](https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif =75%)
   
