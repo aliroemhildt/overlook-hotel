@@ -25,32 +25,30 @@ Credentials:
 - password: "overlook2021"
  
  <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="75%">
-  
-![Login page error](https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif =75%)
-  
-![Login page success](https://media.giphy.com/media/ID8RfzJIu238I0jvdg/giphy.gif)
+ 
+ <img src="https://media.giphy.com/media/ID8RfzJIu238I0jvdg/giphy.gif" alt="Login page success" width="75%">
 
 After logging in, a user is brought to the "My Dashboard" page. Here, they will see their total bill for all bookings (past and future), as well as a list of all of their bookings sorted by date (past and future).
-  
-![My Dashboard page](https://media.giphy.com/media/0d8NxPY1ZVGJ3FcFCh/giphy.gif)
+
+<img src="https://media.giphy.com/media/0d8NxPY1ZVGJ3FcFCh/giphy.gif" alt="My Dashboard page" width="75%">
   
 If a user clicks the "Book Now" button in the upper right-hand corner, they will be brought to the "Create Booking" page. Here, they will see a list of all available rooms for the current date. On the left side of the page, the user can use the filters to view all available rooms by room type (optional) and date (required, the default is the current date). After clicking the "Find Room" button, the list of availble rooms will be updated to match the filter criteria.
   
 If the user manually enters a past date, an error message will appear asking them to select a current or future date. If there are no available rooms that match the filter criteria, a message will appear in the available rooms section that informs the user that no rooms are available that meets their filter criteria and asks them to enter a different date or room type. 
-  
-![Book Now page](https://media.giphy.com/media/QPSMoTnNsYZtqGb4DU/giphy.gif)
-  
-![Filter by date](https://media.giphy.com/media/Rk1887Rs71Fw4g9JWk/giphy.gif)
-  
-![Filter by room type](https://media.giphy.com/media/9rujWwSsVN8yhLnlHv/giphy.gif)
+
+<img src="https://media.giphy.com/media/QPSMoTnNsYZtqGb4DU/giphy.gif" alt="Book Now page" width="75%">
+
+<img src="https://media.giphy.com/media/Rk1887Rs71Fw4g9JWk/giphy.gif" alt="Filter by date" width="75%">
+ 
+<img src="https://media.giphy.com/media/9rujWwSsVN8yhLnlHv/giphy.gif" alt="Filter by room type" width="75%">
   
 To book a room, the user can click the "Book Room" button on the room card. That room will be added to their list of bookings for the selected date. After booking, the card for that room will show a successful message and then dissappear from the list. 
-  
-![Book a room](https://media.giphy.com/media/ISwqDrnwtW6a7RzEZ5/giphy.gif)
+
+<img src="https://media.giphy.com/media/ISwqDrnwtW6a7RzEZ5/giphy.gif" alt="Book a room" width="75%">
   
 The user can click the "My Dashboard" button to return back to the "My Dashboard" page. Any bookings made on the "Book Now" page will now appear in their list of bookings, and the total bill will be updated. 
-  
-![Return to My Dashboard page](https://media.giphy.com/media/umeU0TGwyYPwhfLvEW/giphy.gif)
+
+<img src="https://media.giphy.com/media/umeU0TGwyYPwhfLvEW/giphy.gif" alt="Return to My Dashboard page" width="75%">
   
 ## Future Features
 - "Create Account" page where a new user can be created (with username and password)
