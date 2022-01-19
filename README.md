@@ -1,7 +1,14 @@
 # OVERLOOK HOTEL
 
 ## Abstract 
-This application was built as the final solo project for Module 2 of Turing School of Software & Design's frontend program.
+This application was built as the final solo project for Module 2 of Turing School of Software & Design's frontend program. This app is a hotel management tool for customers to create new bookings and view those bookings and their total bill.
+
+The focus areas of this project were:
+- Using OOP to drive code design
+- Unit testing / TDD 
+- Using the fetch API to retrieve and post data
+- Error handling
+- Sass
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -11,12 +18,38 @@ This application was built as the final solo project for Module 2 of Turing Scho
 - [Authors](#authors)
 
 ## Project Overview
+The application opens to a login page where a customer can enter their credentials. If a user enters the correct credentials, they will enter the app. If their username or password is incorrect, an error message will appear to inform the user to try agian. 
 
+Credentials:
+- username: "customer<id>" where id is a number 1-50 (ex: "customer25")
+- password: "overlook2021"
+  
+![Login page]()
 
+After logging in, a user is brought to the "My Dashboard" page. Here, they will see their total bill for all bookings (past and future), as well as a list of all of their bookings sorted by date (past and future).
+  
+![My Dashboard page]()
+  
+If a user clicks the "Book Now" button in the upper right-hand corner, they will be brought to the "Create Booking" page. Here, they will see a list of all available rooms for the current date. On the left side of the page, the user can use the filters to view all available rooms by room type (optional) and date (required, the default is the current date). After clicking the "find room" button, the list of availble rooms will be updated to match the filter criteria.
+  
+If the user manually enters a past date, an error message will appear asking them to select a current or future date. If there are no available rooms that match the filter criteria, a message will appear in the available rooms section that informs the user that no rooms are available that meets their filter criteria and asks them to enter a different date or room type. 
+  
+[Create Booking page]()
+  
+To book a room, the user can click the "Book Room" button on the room card. That room will be added to their list of bookings for the selected date. After booking, the card for that room will show a successful message and then dissappear from the list. 
+  
+[Book a room]()
+  
+The user can click the "My Dashboard" button to return back to the "My Dashboard" page. Any bookings made on the "Book Now" page will now appear in their list of bookings, and the total bill will be updated. 
+  
+[Return to My Dashboard page]()
+  
 ## Future Features
-- 'Create Account' page where a new user is created (with username and password)
-- Ability to log in and out of different accounts
-- Log in specific for manager with the ability to add and remove bookings for customers
+- 'Create Account' page where a new user can be created (with username and password)
+- The ability to log in and out of different accounts
+- A specific login for the hotel manager. Once logged in they would have the ability to view all customers, bookings, and rooms. They would have the ability to add or remove bookings for customers. 
+- The ability to cancel a future booking (by customer or manager)
+- The ability to filter the list of bookings on "My Dashboard"
 
 ## Technologies Used 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -59,3 +92,4 @@ from inside your local copy of the project repo:
 - you should now see the Overlook Hotel login page!
 
 ## Authors
+Functionality and design by [Ali Roemhildt](https://github.com/aliroemhildt)
