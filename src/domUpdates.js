@@ -7,7 +7,6 @@ import './images/single-room.png';
 import './images/suite.png';
 import Booking from './classes/Booking';
 
-
 const main = document.querySelector('main');
 const menu = document.getElementById('menu');
 const loginPage = document.getElementById('loginPage')
@@ -24,7 +23,8 @@ const dateInput = document.getElementById('dateInput');
 const availableRoomsSection = document.getElementById('availableRooms');
 const filterButton = document.getElementById('filterButton');
 const typeFilters = document.querySelectorAll('.checkbox-js');
-const errorMessage = document.getElementById('errorMessage');
+const loginError = document.getElementById('loginError');
+const dateError = document.getElementById('dateError');
 
 const domUpdates = {
   populateBookings() {
@@ -46,8 +46,6 @@ const domUpdates = {
       `;
     } else {
       const cards = hotel.currentCustomer.bookings.sort((a, b) => {
-        // const aDate = domUpdates.formatDate(a.date);
-        // const bDate = domUpdates.formatDate(b.date);
         return new Date(a.date) - new Date(b.date);
       });
       cards.forEach(booking => {
@@ -72,14 +70,19 @@ const domUpdates = {
   populateAvailableRooms() {
     const today = domUpdates.formatDate(domUpdates.getTodaysDate());
     const input  = domUpdates.formatDate(dateInput.value);
-    console.log(today, input);
-    console.log(input >= today)
+    availableRoomsSection.innerHTML = '';
     if (input >= today) {
-      availableRoomsSection.innerHTML = '';
       hotel.getAvailableRooms(dateInput.value);
       domUpdates.checkFilters();
       domUpdates.createRoomCards();
+    } else {
+      domUpdates.displayDateError()
     }
+  },
+
+  displayDateError() {
+    dateError.innerText = 'Please choose a current or future date';
+    setTimeout(() => {dateError.innerText = ''}, 2000);
   },
 
   createRoomCards() {
@@ -98,7 +101,7 @@ const domUpdates = {
               <p>Number of Beds: ${room.numBeds}</p>
               <p>Bed Size: ${room.bedSize}</p>
               <p>Bidet: ${bidet}</p>
-              <button class="standard-button" id="${room.number}">Book Room</button>
+              <button class="standard-button book-button-js" id="${room.number}">Book Room</button>
             </div>
             <img src='${roomImages[room.roomType]}' alt='${room.roomType} image'>
           </section>
@@ -133,7 +136,7 @@ const domUpdates = {
     dashboardMenuButton.classList.add('clicked');
     dashboardMenuButton.disabled = true;
     bookMenuButton.classList.remove('clicked');
-    dashboardMenuButton.disabled = false;
+    bookMenuButton.disabled = false;
     domUpdates.populateBookings();
   },
 
@@ -183,7 +186,8 @@ const domUpdates = {
   },
 
   displaySuccessfulBooking(e, date) {
-    const card = e.target.parentElement;
+    const card = e.target.parentElement.parentElement;
+    console.log(card)
     card.innerHTML = `
       <p>You have booked room ${e.target.id} for ${domUpdates.formatDate(date)}!
     `;
@@ -195,14 +199,13 @@ const domUpdates = {
   },
 
   displayLoginUserError() {
-    errorMessage.innerText = 'Username or Password is incorrect. Please try again';
-    console.log(errorMessage)
-    setTimeout(() => {errorMessage.innerText = ''}, 3000);
+    loginError.innerText = 'Username or Password is incorrect. Please try again.';
+    setTimeout(() => {loginError.innerText = ''}, 3000);
   },
 
   displayFetchError(error) {
-    errorMessage.innerText = error.message;
-    setTimeout(() => {errorMessage.innerText = ''}, 3000);
+    loginError.innerText = error.message;
+    setTimeout(() => {loginError.innerText = ''}, 3000);
   },
 
   getTodaysDate() {
@@ -247,9 +250,10 @@ dashboardMenuButton.addEventListener('click', () => {
 filterButton.addEventListener('click', domUpdates.populateAvailableRooms);
 
 availableRoomsSection.addEventListener('click', (e) => {
-  if (e.target.classList.contains('book-button')) {
+  if (e.target.classList.contains('book-button-js')) {
+    console.log(e.target.id)
     domUpdates.bookRoom(e);
   }
-})
+});
 
 export {domUpdates}

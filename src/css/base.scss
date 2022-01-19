@@ -81,13 +81,22 @@ h3 {
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     margin: 8px;
   }
 
   img {
     @include size(178px, 267px);
     margin: 10px;
+  }
+}
+
+.booked {
+  background-color: $light-blue;
+
+  p {
+    margin: 12px;
+    color: $teal;
   }
 }
 

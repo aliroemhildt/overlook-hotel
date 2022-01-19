@@ -74,11 +74,9 @@
   margin: 25px;
 }
 
-.booked {
-  background-color: $light-blue;
-
-  p {
-    margin: 12px;
-    color: $teal;
-  }
+.date-error {
+  height: 14px;
+  margin: 3px;
+  font-size: 14px;
+  color: $red;
 }

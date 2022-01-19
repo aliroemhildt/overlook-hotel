@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Overlook Hotel Application for the Turing Front End Mod 2 Final">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -30,7 +31,7 @@
         <input type="password" id="password">
       </div>
       <button class="standard-button" id="loginButton">Log In</button>
-      <p class="error-message" id="errorMessage"></p>
+      <p class="login-error" id="loginError"></p>
     </section>
     <section class="dashboard hidden" id="customerDashboard" tabindex="0">
       <h2>My Dashboard</h2>
@@ -74,6 +75,7 @@
             <div class="date-wrapper">
               <label for="dateInput">Select Date</label>
               <input type="date" max="2030-01-01" id="dateInput">
+              <p class="date-error" id="dateError"></p>
             </div>
             <div class="filter-button-wrapper">
               <button class="filter-button standard-button" id="filterButton">Find Rooms</button>
