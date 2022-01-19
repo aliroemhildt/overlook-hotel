@@ -58,7 +58,7 @@ const domUpdates = {
         <section class="card" tabindex="0">
         <div class="info">
           <p>Date: ${domUpdates.formatDate(booking.date)}</p>
-          <p>Room Number: ${booking.roomNumber}<p>
+          <p>Room Number: ${booking.roomNumber}</p>
           <p>Room Type: ${room.roomType}</p>
           <p>Cost: $${room.costPerNight}</p>
         </div>
@@ -93,12 +93,12 @@ const domUpdates = {
           <section class="card" tabindex="0">
             <div class="info">
               <p>Room Number: ${room.number}</p>
-              <p>Cost: $${room.costPerNight}<p>
+              <p>Cost: $${room.costPerNight}</p>
               <p>Room Type: ${room.roomType}</p>
               <p>Number of Beds: ${room.numBeds}</p>
               <p>Bed Size: ${room.bedSize}</p>
               <p>Bidet: ${bidet}</p>
-              <button class="book-button" id="${room.number}">Book Room</button>
+              <button class="standard-button" id="${room.number}">Book Room</button>
             </div>
             <img src='${roomImages[room.roomType]}' alt='${room.roomType} image'>
           </section>
@@ -131,15 +131,19 @@ const domUpdates = {
     domUpdates.show([customerDashboard, menu]);
     domUpdates.hide([bookingDashboard]);
     dashboardMenuButton.classList.add('clicked');
+    dashboardMenuButton.disabled = true;
     bookMenuButton.classList.remove('clicked');
+    dashboardMenuButton.disabled = false;
     domUpdates.populateBookings();
   },
 
   displayBookingDashboard() {
     domUpdates.show([bookingDashboard]);
     domUpdates.hide([customerDashboard]);
-    dashboardMenuButton.classList.remove('clicked');
     bookMenuButton.classList.add('clicked');
+    bookMenuButton.disabled = true;
+    dashboardMenuButton.classList.remove('clicked');
+    dashboardMenuButton.disabled = false;
     domUpdates.setMinDate();
     domUpdates.populateAvailableRooms();
   },

@@ -1,7 +1,3 @@
-.my-dashboard-text {
-  margin-bottom: 0;
-}
-
 .customer-dashboard-wrapper {
   @include flex-row(center, flex-start);
   @include size(100%, 100%);
@@ -9,16 +5,16 @@
 
 .customer-section-left {
   @include flex-column(center, flex-start);
-  @include size(90%, 40%);
+  @include size(100%, 38%);
 }
 
-.dashboard-section-right {
+.customer-section-right {
   @include flex-column(center, flex-start);
-  @include size(90%, 60%);
+  @include size(100%, 60%);
 }
 
 .total-spent-wrapper {
-  @include size(80%, 90%);
+  @include size(380px, 90%);
   @include flex-row(center, center);
 
   h4 {
@@ -28,7 +24,7 @@
 }
 
 .booking-cards-wrapper {
-  @include size(80%, 90%);
+  @include size(380px, 90%);
   @include flex-column(center, flex-start);
   overflow: auto;
 }

@@ -1,6 +1,6 @@
 .login {
-  @include size(350px, 350px);
-  @include flex-column(center, space-around);
+  @include size(375px, 375px);
+  @include flex-column(center, center);
   @include box-shadow();
   @include section-border();
   background-color: $light-blue;
@@ -9,6 +9,14 @@
   input {
     margin: 12px 0 12px 0;
     font-size: 18px;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+  }
+
+  button {
+    margin-top: 40px
   }
 }
 
@@ -21,16 +29,9 @@
   }
 }
 
-// .login-button {
-//   @include size(30px, 80px);
-//   border-radius: 15px;
-//   border: none;
-//   margin: 20px;
-//   background-color: $teal;
-//   color: $white;
-// }
-//
-// .login-button:hover {
-//   background-color: $teal-hover;
-//   cursor: pointer;
-// }
+.error-message {
+  height: 14px;
+  margin: 15px;
+  font-size: 14px;
+  color: $red;
+}

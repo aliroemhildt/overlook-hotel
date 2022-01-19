@@ -33,20 +33,10 @@ nav {
 
 .menu {
   @include flex-row(flex-start, center);
-
-  // h2 {
-  //   color: $teal;
-  //   font-size: 24px;
-  //   margin: 20px;
-  //   font-weight: 700;
-  // }
-  //
-  // h2:hover {
-  //   color: $teal-hover;
-  // }
 }
 
 .clicked {
   color: $red;
   pointer-events: none;
+  border-bottom: 1px solid $red;
 }
