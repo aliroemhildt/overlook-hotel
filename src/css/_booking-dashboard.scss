@@ -1,15 +1,15 @@
 .booking-dashboard-wrapper {
-  @include flex-row(space-around, center);
-  @include size(90%, 100%);
+  @include flex-row(center, flex-start);
+  @include size(100%, 100%);
 }
 
 .left-booking-section {
-  @include size(100%, 30%);
   @include flex-column(center, flex-start);
+  @include size(100%, 28%);
 }
 
 .filter-wrapper {
-  @include size(80%, 85%);
+  @include size(380px, 90%);
   @include flex-column(flex-start, space-around);
 
   input:hover {
@@ -41,15 +41,24 @@
   @include size('',100%);
 }
 
-.available-rooms-wrapper {
-  @include size(80%, 90%);
+.available-rooms-section {
+  @include size(100%, 68%);
   @include flex-column(center, flex-start);
-  overflow: auto;
+
+  button {
+    background-color: $light-blue;
+    color: $red;
+  }
+
+  button:hover {
+    background-color: $white;
+  }
 }
 
-.available-rooms-section {
-  @include size(100%, 70%);
+.available-rooms-wrapper {
+  @include size(380px, 94%);
   @include flex-column(center, flex-start);
+  overflow: auto;
 }
 
 .booking-dashboard-section {
@@ -65,11 +74,9 @@
   margin: 25px;
 }
 
-.booked {
-  background-color: $light-blue;
-
-  p {
-    margin: 12px;
-    color: $teal;
-  }
+.date-error {
+  height: 14px;
+  margin: 3px;
+  font-size: 14px;
+  color: $red;
 }

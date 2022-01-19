@@ -1,50 +1,30 @@
-.my-dashboard-text {
-  margin-bottom: 0;
-}
-
 .customer-dashboard-wrapper {
-  @include flex-row(space-around, center);
-  @include size(95%, 100%);
+  @include flex-row(center, flex-start);
+  @include size(100%, 100%);
 }
 
 .customer-section-left {
   @include flex-column(center, flex-start);
-  @include size(90%, 40%);
+  @include size(100%, 38%);
 }
 
-.dashboard-section-right {
+.customer-section-right {
   @include flex-column(center, flex-start);
-  @include size(90%, 60%);
+  @include size(100%, 60%);
 }
 
 .total-spent-wrapper {
-  @include size(80%, 90%);
+  @include size(380px, 90%);
   @include flex-row(center, center);
 
   h4 {
     color: $teal;
-    font-size: 75px;
+    font-size: 60px;
   }
 }
 
 .booking-cards-wrapper {
-  @include size(80%, 90%);
+  @include size(380px, 90%);
   @include flex-column(center, flex-start);
   overflow: auto;
-  // padding: 5px 0 5px 0;
-}
-
-.card {
-  @include box-shadow();
-  @include flex-column(flex-start, space-around);
-  min-height: 200px;
-  width: 95%;
-  margin: 10px;
-  background-color: $teal;
-  border-radius: 10px;
-  color: $white;
-
-  p {
-    margin: 3px;
-  }
 }
