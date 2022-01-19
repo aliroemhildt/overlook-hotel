@@ -23,8 +23,11 @@ The application opens to a login page where a customer can enter their credentia
 Credentials:
 - username: "customer<id>" where id is a number 1-50 (ex: "customer25")
 - password: "overlook2021"
+ 
+ <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="50">
   
 ![Login page error](https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif)
+  
 ![Login page success](https://media.giphy.com/media/ID8RfzJIu238I0jvdg/giphy.gif)
 
 After logging in, a user is brought to the "My Dashboard" page. Here, they will see their total bill for all bookings (past and future), as well as a list of all of their bookings sorted by date (past and future).
@@ -36,7 +39,9 @@ If a user clicks the "Book Now" button in the upper right-hand corner, they will
 If the user manually enters a past date, an error message will appear asking them to select a current or future date. If there are no available rooms that match the filter criteria, a message will appear in the available rooms section that informs the user that no rooms are available that meets their filter criteria and asks them to enter a different date or room type. 
   
 ![Book Now page](https://media.giphy.com/media/QPSMoTnNsYZtqGb4DU/giphy.gif)
+  
 ![Filter by date](https://media.giphy.com/media/Rk1887Rs71Fw4g9JWk/giphy.gif)
+  
 ![Filter by room type](https://media.giphy.com/media/9rujWwSsVN8yhLnlHv/giphy.gif)
   
 To book a room, the user can click the "Book Room" button on the room card. That room will be added to their list of bookings for the selected date. After booking, the card for that room will show a successful message and then dissappear from the list. 
