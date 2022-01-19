@@ -30,7 +30,7 @@ After logging in, a user is brought to the "My Dashboard" page. Here, they will 
   
 ![My Dashboard page]()
   
-If a user clicks the "Book Now" button in the upper right-hand corner, they will be brought to the "Create Booking" page. Here, they will see a list of all available rooms for the current date. On the left side of the page, the user can use the filters to view all available rooms by room type (optional) and date (required, the default is the current date). After clicking the "find room" button, the list of availble rooms will be updated to match the filter criteria.
+If a user clicks the "Book Now" button in the upper right-hand corner, they will be brought to the "Create Booking" page. Here, they will see a list of all available rooms for the current date. On the left side of the page, the user can use the filters to view all available rooms by room type (optional) and date (required, the default is the current date). After clicking the "Find Room" button, the list of availble rooms will be updated to match the filter criteria.
   
 If the user manually enters a past date, an error message will appear asking them to select a current or future date. If there are no available rooms that match the filter criteria, a message will appear in the available rooms section that informs the user that no rooms are available that meets their filter criteria and asks them to enter a different date or room type. 
   
@@ -45,7 +45,7 @@ The user can click the "My Dashboard" button to return back to the "My Dashboard
 [Return to My Dashboard page]()
   
 ## Future Features
-- 'Create Account' page where a new user can be created (with username and password)
+- "Create Account" page where a new user can be created (with username and password)
 - The ability to log in and out of different accounts
 - A specific login for the hotel manager. Once logged in they would have the ability to view all customers, bookings, and rooms. They would have the ability to add or remove bookings for customers. 
 - The ability to cancel a future booking (by customer or manager)
