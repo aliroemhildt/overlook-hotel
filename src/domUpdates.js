@@ -67,9 +67,12 @@ const domUpdates = {
   },
 
   populateAvailableRooms() {
-    const today = domUpdates.formatDate(domUpdates.getTodaysDate());
-    const input  = domUpdates.formatDate(dateInput.value);
+    const today = new Date();
+    today.setDate(today.getDate() - 1);
+    const input  = new Date (dateInput.value);
     availableRoomsSection.innerHTML = '';
+    console.log("input: ", input, "today: ", today)
+    console.log(input >= today)
     if (input >= today) {
       hotel.getAvailableRooms(dateInput.value);
       domUpdates.checkFilters();
@@ -221,11 +224,11 @@ const domUpdates = {
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
-    return yyyy + '/' + mm + '/' + dd;
+    return yyyy + '-' + mm + '-' + dd;
   },
 
   setMinDate() {
-    const today = domUpdates.getTodaysDate().replaceAll('/', '-');
+    const today = domUpdates.getTodaysDate();
     dateInput.min = today;
     dateInput.value = today;
   },
