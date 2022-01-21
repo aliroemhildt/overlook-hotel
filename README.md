@@ -51,11 +51,10 @@ The user can click the "My Dashboard" button to return back to the "My Dashboard
 <img src="https://media.giphy.com/media/umeU0TGwyYPwhfLvEW/giphy.gif" alt="Return to My Dashboard page" width="75%">
   
 ## Future Features
-- "Create Account" page where a new user can be created (with username and password)
 - The ability to log in and out of different accounts
-- A specific login for the hotel manager. Once logged in they would have the ability to view all customers, bookings, and rooms. They would have the ability to add or remove bookings for customers. 
+- "Create Account" page where a new user can be created (with username and password)
+- A specific login for the hotel manager: once logged in they would have the ability to view all customers, bookings, and rooms, and have the ability to add or remove bookings for customers
 - The ability to cancel a future booking (by customer or manager)
-- The ability to filter the list of bookings on "My Dashboard"
 
 ## Technologies Used 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
