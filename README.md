@@ -21,7 +21,7 @@ The focus areas of this project were:
 The application opens to a login page where a customer can enter their credentials. If a user enters the correct credentials, they will enter the app. If their username or password is incorrect, an error message will appear to inform the user to try agian. 
 
 Credentials:
-- username: "customer<id>" where id is a number 1-50 (ex: "customer25")
+- username: "customer<id>" where id is a number 1-50 (ex: "customer25", or "customer02" for customers 1-9)
 - password: "overlook2021"
  
  <img src="https://media.giphy.com/media/zgkILMn6vfZN6B8LkY/giphy.gif" alt="Login page error" width="75%">
@@ -80,8 +80,8 @@ clone this repo to your local machine:
 - copy the SSH address
 - run ```git clone [remote-address]``` in your terminal
 
-clone the [overlook api repo](https://github.com/turingschool-examples/overlook-api) to set up the local server:
-- follow this link to the api repo
+clone the overlook api repo to your local machine (outside of this repo):
+- follow [this link](https://github.com/turingschool-examples/overlook-api) to the overlook api repo
 - copy the SSH address
 - run ```git clone [remote-address]``` in your terminal
 
@@ -89,8 +89,8 @@ from inside your local copy of the api repo:
 - run ```npm install``` in your terminal
 - run ```npm start``` in your terminal
 
-from inside your local copy of the project repo: 
-- run ```npm install``` in a separate terminal tab
+from inside your local copy of the project repo, in a separate terminal tab: 
+- run ```npm install``` in the terminal
 - run ```npm start``` in the terminal
 - copy the url for the localhost 8080 
 - paste the url in your browser
