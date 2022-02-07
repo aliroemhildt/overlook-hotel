@@ -174,23 +174,33 @@ const domUpdates = {
     hotel.currentCustomer.createNewBooking(date, roomNumber)
       .then(response => {
         domUpdates.displaySuccessfulBooking(e, date)
-        fetchBookings()
-          .then(data => {
-            updateBookings(data.bookings);
-            setTimeout(() => {
-              domUpdates.populateAvailableRooms();
-            }, 2500);
-          })
-          .catch(error => {
-            console.log(error.message)
-            domUpdates.displayBookingError()
-          })
+        return fetchBookings()
+      })
+      .then(data => {
+        updateBookings(data.bookings);
+        setTimeout(() => {
+          domUpdates.populateAvailableRooms();
+        }, 2500);
       })
       .catch(error => {
         console.log(error.message)
         domUpdates.displayBookingError()
       })
   },
+  // hotel.currentCustomer.createNewBooking(date, roomNumber) //this is the post request
+  // .then(response => {
+  //   domUpdates.displaySuccessfulBooking(e, date)
+  //   return fetchBookings();
+  // .then(data => {
+  //   updateBookings(data.bookings);
+  //   setTimeout(() => {
+  //     domUpdates.populateAvailableRooms();
+  //   }, 2500);
+  // })
+  // .catch(error => {
+  //   console.log(error.message)
+  //   domUpdates.displayBookingError()
+  // });
 
   displaySuccessfulBooking(e, date) {
     const card = e.target.parentElement.parentElement;
