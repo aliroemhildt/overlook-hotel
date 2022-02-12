@@ -256,8 +256,12 @@ const domUpdates = {
   }
 }
 
-loginButton.addEventListener('click', () => {
-  validateLogin(username.value, password.value)
+// loginButton.addEventListener('click', () => {
+//   validateLogin(username.value, password.value)
+// });
+
+window.addEventListener('load', () => {
+  validateLogin('customer25', 'overlook2021')
 });
 
 bookMenuButton.addEventListener('click', () => {
