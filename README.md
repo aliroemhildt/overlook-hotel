@@ -1,7 +1,9 @@
 # OVERLOOK HOTEL
 
 ## Abstract 
-This application was built as a final solo project for Module 2 of [Turing School of Software & Design's](https://turing.edu/) frontend program. This app is a hotel management tool for customers to create new bookings and view those bookings and their total bill.
+This app is a hotel management tool for customers to create new bookings and view those bookings and their total bill.
+
+This was a final solo project for Module 2 of [Turing School of Software & Design's](https://turing.edu/) frontend program.
 
 The focus areas of this project were:
 - Using OOP to drive code design
