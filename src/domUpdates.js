@@ -32,9 +32,10 @@ const domUpdates = {
   },
 
   formatDate(date) {
-    const mm = date.slice(5, 7)
-    const dd = date.slice(8, 10)
-    const yyyy = date.slice(0, 4)
+    let mm = date.slice(5, 7)
+    let dd = date.slice(8, 10)
+    let yyyy = date.slice(0, 4)
+
     return mm + '/' + dd + '/' + yyyy;
   },
 
@@ -67,13 +68,15 @@ const domUpdates = {
   },
 
   populateAvailableRooms() {
-    const today = new Date();
-    today.setDate(today.getDate() - 1);
-    const input  = new Date (dateInput.value);
     availableRoomsSection.innerHTML = '';
-    console.log("input: ", input, "today: ", today)
-    console.log(input >= today)
-    if (input >= today) {
+
+    const todayRaw = new Date();
+    const inputRaw = new Date(dateInput.value);
+    inputRaw.setDate(inputRaw.getDate() + 1);
+    const today = todayRaw.toLocaleDateString("en-US");
+    const input = inputRaw.toLocaleDateString("en-US");
+
+    if (new Date(input) >= new Date(today)) {
       hotel.getAvailableRooms(dateInput.value);
       domUpdates.checkFilters();
       domUpdates.createRoomCards();
